@@ -11,7 +11,11 @@
 - ESLint
 - Storybook
 
-## 🔧 Comando Utilizados
+## 🖥️ Sobre
+
+<p align="justify">Boilerplate de uma aplicação React gerada com Vite, possuindo ESLint + Prettier, aliases path e Storybook instalados e configurados.</p>
+
+## 🔧 Comandos Utilizados
 
 - yarn create vite (Vite)
 - yarn create @eslint/config (ESLint)
