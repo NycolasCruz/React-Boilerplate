@@ -3,7 +3,7 @@ import viteLogo from "/vite.svg";
 
 import "./styles.scss";
 
-export function Images() {
+export function Logos() {
 	return (
 		<>
 			<a href="https://vitejs.dev" target="_blank" rel="noreferrer">

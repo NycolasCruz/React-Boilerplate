@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Images } from "./components/images";
+import { Logos } from "@/components/Logos";
 import "./App.scss";
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
 
 	return (
 		<>
-			<Images />
+			<Logos />
 
 			<h1>React Boilerplate</h1>
 
