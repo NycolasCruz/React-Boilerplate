@@ -13,7 +13,7 @@
 
 ## 🖥️ Sobre
 
-<p align="justify">Boilerplate de uma aplicação React gerada com Vite, possuindo ESLint + Prettier, aliases path e Storybook instalados e configurados.</p>
+<p align="justify">Boilerplate de uma aplicação React gerada com Vite, possuindo ESLint + Prettier, aliases path e Storybook instalado e configurado.</p>
 
 ## 🔧 Comandos Utilizados
 
