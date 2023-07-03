@@ -1,4 +1,4 @@
-type ReactSelectOptions = {
+type Options = {
 	value: string;
 	label: string;
 };
