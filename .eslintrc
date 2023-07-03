@@ -15,16 +15,11 @@
 		"sourceType": "module"
 	},
 	"plugins": ["react", "@typescript-eslint"],
-	"rules": {
-		"react/react-in-jsx-scope": "off",
-		"@typescript-eslint/no-unused-vars": "error"
-	},
+	"rules": { "react/react-in-jsx-scope": "off" },
 	"overrides": [
 		{
 			"files": ["**/@types/**/*"],
-			"rules": {
-				"@typescript-eslint/no-unused-vars": "off"
-			}
+			"rules": { "@typescript-eslint/no-unused-vars": "off" }
 		}
 	]
 }
