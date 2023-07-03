@@ -6,10 +6,9 @@ module.exports = {
 		"@storybook/addon-interactions"
 	],
 	framework: {
-		name: "@storybook/react-vite",
-		options: {}
+		name: "@storybook/react-vite"
 	},
 	docs: {
-		autodocs: "tag"
+		autodocs: true
 	}
 };
