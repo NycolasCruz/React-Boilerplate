@@ -1,4 +1,3 @@
-import { SelectExample } from "@/components/SelectExample";
 import { Logos } from "@/components/Logos";
 
 export function App() {
@@ -6,7 +5,6 @@ export function App() {
 		<>
 			<Logos />
 			<h1>React Boilerplate</h1>
-			<SelectExample />
 		</>
 	);
 }
