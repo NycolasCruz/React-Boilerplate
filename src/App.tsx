@@ -1,23 +1,13 @@
 import { Logos } from "@/components/Logos";
 
-import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
+import { ReactSidebar } from "./components/ReactSidebar";
 
 export function App() {
 	return (
-		<>
-			<Sidebar>
-				<Menu>
-					<SubMenu label="Charts">
-						<MenuItem> Pie charts </MenuItem>
-						<MenuItem> Line charts </MenuItem>
-					</SubMenu>
-					<MenuItem> Documentation </MenuItem>
-					<MenuItem> Calendar </MenuItem>
-				</Menu>
-			</Sidebar>
+		<div className="flex">
+			<ReactSidebar />
 
 			<Logos />
-			<h1>React Boilerplate</h1>
-		</>
+		</div>
 	);
 }
