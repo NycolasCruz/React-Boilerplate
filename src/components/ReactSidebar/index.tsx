@@ -6,6 +6,8 @@ import { GiHamburgerMenu } from "react-icons/gi";
 
 import { useWindowDimensions } from "@/hooks/useWindowDimensions";
 
+import "./styles.scss";
+
 export function ReactSidebar() {
 	const [collapsed, setCollapsed] = useState(false);
 	const [toggled, setToggled] = useState(false);
@@ -26,7 +28,7 @@ export function ReactSidebar() {
 	return (
 		<>
 			<Sidebar
-				style={{ height: "100vh" }}
+				className="h-screen"
 				collapsed={collapsed}
 				toggled={toggled}
 				breakPoint="md"

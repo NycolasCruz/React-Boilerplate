@@ -1,3 +1,6 @@
+$opaqueMediumSlateBlue: #646cffaa;
+$opaqueCyan: #61dafbaa;
+
 .logo {
 	height: 6em;
 	padding: 1.5em;
@@ -5,11 +8,11 @@
 	transition: filter 300ms;
 
 	&:hover {
-		filter: drop-shadow(0 0 2em #646cffaa);
+		filter: drop-shadow(0 0 2em $opaqueMediumSlateBlue);
 	}
 
 	&.react:hover {
-		filter: drop-shadow(0 0 2em #61dafbaa);
+		filter: drop-shadow(0 0 2em $opaqueCyan);
 	}
 }
 
