@@ -1,11 +1,6 @@
 import { Card } from "flowbite-react";
 
-type Props = {
-	title: string;
-	description: string;
-};
-
-export function DefaultCard({ title, description }: Props) {
+export function DefaultCard({ title, description }: DefaultCard) {
 	return (
 		<Card className="max-w-sm">
 			<h5 className="font-bold text-2xl text-white tracking-tight">{title}</h5>
