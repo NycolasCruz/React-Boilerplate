@@ -1,10 +1,14 @@
-import { Logos } from "@/components/Logos";
+import { ReactSidebar } from "@/components/ReactSidebar";
+import { DefaultCard } from "@/components/DefaultCard";
 
 export function App() {
 	return (
 		<>
-			<Logos />
-			<h1>React Boilerplate</h1>
+			<ReactSidebar />
+
+			<div className="ml-[17.5rem] py-7">
+				<DefaultCard title="Card Principal" description="descrição do card" />
+			</div>
 		</>
 	);
 }

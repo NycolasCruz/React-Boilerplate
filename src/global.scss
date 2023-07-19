@@ -2,30 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-$black: #242424;
+$darkBlue: #111827;
+$opaqueWhite: #ffffffde;
 
 body {
 	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-	color: #ffffffde;
-	background-color: $black;
-}
-
-#root {
-	max-width: 1280px;
-	margin: 0 auto;
-	padding: 2rem;
-	text-align: center;
-}
-
-body {
+	color: $opaqueWhite;
+	background-color: $darkBlue;
 	margin: 0;
-	display: flex;
-	place-items: center;
-	min-width: 320px;
-	min-height: 100vh;
-}
-
-h1 {
-	font-size: 3.2em;
-	line-height: 1.1;
 }
