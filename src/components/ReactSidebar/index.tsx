@@ -11,16 +11,20 @@ import { useWindowDimensions } from "@/hooks/useWindowDimensions";
 
 import "./styles.scss";
 
+type Props = {
+	isCollapsed: boolean;
+	setIsCollapsed: (setIsCollapsed: boolean) => void;
+};
+
 type MenuSection = {
 	sectionName: string;
 };
 
-export function ReactSidebar() {
-	const [isCollapsed, setIsCollapsed] = useState(false);
+export function ReactSidebar({ isCollapsed, setIsCollapsed }: Props) {
 	const [toggled, setToggled] = useState(false);
 	const { width } = useWindowDimensions();
 
-	const widthMd = width < 769;
+	const widthBelowWide = width < 769;
 
 	const showSidebar = () => setToggled(true);
 	const hideNavbar = () => setToggled(false);
@@ -60,7 +64,7 @@ export function ReactSidebar() {
 	}
 
 	useEffect(() => {
-		if (widthMd) {
+		if (widthBelowWide) {
 			setIsCollapsed(false);
 			hideNavbar();
 		}
@@ -85,8 +89,9 @@ export function ReactSidebar() {
 					>
 						{!isCollapsed && <h5 className="font-bold text-2xl tracking-tight">BOILERPLATE</h5>}
 
-						{width > 768 && (
-							<button className="ease-out duration-200 mt-1" onClick={handleSidebarCollapse}>
+						{/* collapse button */}
+						{!widthBelowWide && (
+							<button className="ease-out duration-300 mt-1" onClick={handleSidebarCollapse}>
 								<RiArrowLeftDoubleFill className="text-3xl hover:text-sky-500 duration-300" />
 							</button>
 						)}
@@ -97,13 +102,13 @@ export function ReactSidebar() {
 					<MenuItem icon={<MdSpaceDashboard className="text-xl" />}>Dashboard</MenuItem>
 					<MenuItem icon={<BsPersonFill className="text-xl" />}>Perfil</MenuItem>
 					<SubMenu icon={<BsPersonFillGear className="text-xl" />} label="Gerência">
-						<MenuItem>Lojas</MenuItem>
 						<MenuItem>Empresas</MenuItem>
+						<MenuItem>Funcionários</MenuItem>
 					</SubMenu>
 				</Menu>
 			</Sidebar>
 
-			{widthMd && (
+			{widthBelowWide && (
 				<button onClick={showSidebar}>
 					<GiHamburgerMenu className="text-3xl hover:text-sky-500 duration-150" />
 				</button>
