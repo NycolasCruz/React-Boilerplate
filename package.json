@@ -4,9 +4,10 @@
 	"version": "1.0.0",
 	"type": "module",
 	"scripts": {
-		"dev": "vite",
-		"build": "tsc && vite build",
+		"start": "vite",
 		"lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+		"format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,md,css,scss}\"",
+		"build": "tsc && vite build",
 		"preview": "vite preview",
 		"storybook": "storybook dev -p 6006",
 		"build-storybook": "storybook build"
