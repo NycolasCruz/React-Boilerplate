@@ -87,7 +87,9 @@ export function ReactSidebar({ isCollapsed, setIsCollapsed }: Props) {
 							isCollapsed ? "justify-center" : "justify-between"
 						)}
 					>
-						{!isCollapsed && <h5 className="font-bold text-2xl tracking-tight">BOILERPLATE</h5>}
+						{!isCollapsed && (
+							<h5 className="font-bold text-2xl text-slate-200 tracking-tight">Boilerplate</h5>
+						)}
 
 						{/* collapse button */}
 						{!widthBelowWide && (
@@ -97,11 +99,27 @@ export function ReactSidebar({ isCollapsed, setIsCollapsed }: Props) {
 						)}
 					</div>
 
-					<MenuSection sectionName="GERAL" />
+					<MenuSection sectionName="Geral" />
 
-					<MenuItem icon={<MdSpaceDashboard className="text-xl" />}>Dashboard</MenuItem>
-					<MenuItem icon={<BsPersonFill className="text-xl" />}>Perfil</MenuItem>
-					<SubMenu icon={<BsPersonFillGear className="text-xl" />} label="Gerência">
+					<MenuItem
+						className="text-slate-400"
+						icon={<MdSpaceDashboard className="text-xl text-sky-400" />}
+					>
+						Dashboard
+					</MenuItem>
+
+					<MenuItem
+						className="text-slate-400"
+						icon={<BsPersonFill className="text-xl text-sky-400" />}
+					>
+						Perfil
+					</MenuItem>
+
+					<SubMenu
+						className="text-slate-400"
+						icon={<BsPersonFillGear className="text-xl text-sky-400" />}
+						label="Gerência"
+					>
 						<MenuItem>Empresas</MenuItem>
 						<MenuItem>Funcionários</MenuItem>
 					</SubMenu>
