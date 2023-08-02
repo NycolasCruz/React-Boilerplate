@@ -1,35 +1,29 @@
-import { useState, useEffect, FormEvent } from "react";
+import { useEffect, FormEvent } from "react";
 import classNames from "clsx";
 
 import { Sidebar, Menu, MenuItem, SubMenu, MenuItemStyles } from "react-pro-sidebar";
 import { BsPersonFill, BsPersonFillGear } from "react-icons/bs";
 import { RiArrowLeftDoubleFill } from "react-icons/ri";
 import { MdSpaceDashboard } from "react-icons/md";
-import { GiHamburgerMenu } from "react-icons/gi";
-
-import { useWindowDimensions } from "@/hooks/useWindowDimensions";
 
 import "./styles.scss";
 
 type Props = {
 	isCollapsed: boolean;
 	setIsCollapsed: (setIsCollapsed: boolean) => void;
+	toggled: boolean;
+	hideNavbar: () => void;
+	width: number;
 };
 
-type MenuSection = {
+type Section = {
 	sectionName: string;
 };
 
-export function ReactSidebar({ isCollapsed, setIsCollapsed }: Props) {
-	const [toggled, setToggled] = useState(false);
-	const { width } = useWindowDimensions();
-
+export function ReactSidebar({ isCollapsed, setIsCollapsed, toggled, hideNavbar, width }: Props) {
 	const widthBelowWide = width < 769;
 
-	const showSidebar = () => setToggled(true);
-	const hideNavbar = () => setToggled(false);
-
-	const MenuSection = ({ sectionName }: MenuSection) => {
+	const Section = ({ sectionName }: Section) => {
 		if (!isCollapsed) {
 			return (
 				<div className="mb-2 px-6">
@@ -99,7 +93,7 @@ export function ReactSidebar({ isCollapsed, setIsCollapsed }: Props) {
 						)}
 					</div>
 
-					<MenuSection sectionName="Geral" />
+					<Section sectionName="Geral" />
 
 					<MenuItem
 						className="text-slate-400"
@@ -125,12 +119,6 @@ export function ReactSidebar({ isCollapsed, setIsCollapsed }: Props) {
 					</SubMenu>
 				</Menu>
 			</Sidebar>
-
-			{widthBelowWide && (
-				<button onClick={showSidebar}>
-					<GiHamburgerMenu className="text-3xl hover:text-sky-500 duration-150" />
-				</button>
-			)}
 		</>
 	);
 }

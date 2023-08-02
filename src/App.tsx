@@ -1,15 +1,15 @@
 import { useState } from "react";
 import classNames from "clsx";
 
-import { ReactSidebar } from "@/components/ReactSidebar";
 import { DefaultCard } from "@/components/DefaultCard";
+import { Dashboard } from "@/components/Dashboard";
 
 export function App() {
 	const [isCollapsed, setIsCollapsed] = useState(false);
 
 	return (
 		<>
-			<ReactSidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
+			<Dashboard isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
 
 			<div
 				className={classNames(
