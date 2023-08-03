@@ -1,32 +1,31 @@
+$yellow: #ffd700;
+
 .menu {
 	position: relative;
-	color: white;
-	padding: 10px 20px;
-	cursor: pointer;
-}
 
-.menu::before,
-.menu::after {
-	content: "";
-	position: absolute;
-	bottom: -5px;
-	width: 0;
-	height: 5px;
-	background-color: red;
-	transition: width 0.2s ease-out;
-}
+	&::before,
+	&::after {
+		content: "";
+		position: absolute;
+		bottom: -1.25rem;
+		width: 0;
+		height: 3px;
+		background-color: $yellow;
+		transition: width 0.2s ease-out;
+	}
 
-.menu::before {
-	left: 50%;
-	transform: translateX(-50%);
-}
+	&::before {
+		left: 50%;
+		transform: translateX(-50%);
+	}
 
-.menu::after {
-	right: 50%;
-	transform: translateX(50%);
-}
+	&::after {
+		right: 50%;
+		transform: translateX(50%);
+	}
 
-.menu:hover::before,
-.menu:hover::after {
-	width: 100%;
+	&:hover::before,
+	&:hover::after {
+		width: 150%;
+	}
 }

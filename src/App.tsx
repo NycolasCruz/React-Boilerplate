@@ -14,7 +14,9 @@ export function App() {
 			<div
 				className={classNames(
 					"py-7",
-					isCollapsed ? "ease-in duration-300 ml-[7.5rem]" : "ease-in-out duration-500 ml-[18.3rem]"
+					isCollapsed
+						? "ease-in duration-300 ml-[7.5rem]"
+						: "ease-in-out duration-[400ms] ml-[18.13rem]"
 				)}
 			>
 				<DefaultCard title="Card Principal" description="descrição do card" />

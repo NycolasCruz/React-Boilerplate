@@ -27,7 +27,7 @@ export function Dashboard({ isCollapsed, setIsCollapsed }: Props) {
 				width={width}
 			/>
 
-			<ReactNavbar showSidebar={showSidebar} width={width} />
+			<ReactNavbar showSidebar={showSidebar} isCollapsed={isCollapsed} width={width} />
 		</>
 	);
 }
