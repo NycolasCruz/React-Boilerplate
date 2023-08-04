@@ -44,30 +44,21 @@ export function ReactNavbar({ showSidebar, isCollapsed }: Props) {
 				)}
 
 				<div className={classNames("w-auto", widthBelowWide ? "hidden" : "block")}>
-					<ul className="mt-4 flex flex-col md:mt-0 md:flex-row md:space-x-8 md:text-sm md:font-medium">
+					<ul className="flex flex-row space-x-8 text-sm font-medium">
 						<li>
-							<a
-								href="#"
-								className="block py-2 pr-4 pl-3 md:p-0 border-b border-gray-700 text-gray-400 hover:bg-gray-700 hover:text-white md:border-0 md:hover:bg-transparent md:dark:hover:bg-transparent menu"
-							>
+							<a href="#" className="text-gray-400 hover:text-white menu">
 								<p>Dashboard</p>
 							</a>
 						</li>
 
 						<li>
-							<a
-								href="#"
-								className="block py-2 pr-4 pl-3 md:p-0 border-b border-gray-700 text-gray-400 hover:bg-gray-700 hover:text-white md:border-0 md:hover:bg-transparent md:dark:hover:bg-transparent menu"
-							>
+							<a href="#" className="text-gray-400 hover:text-white menu">
 								Perfil
 							</a>
 						</li>
 
 						<li>
-							<a
-								href="#"
-								className="block py-2 pr-4 pl-3 md:p-0 border-b border-gray-700 text-gray-400 hover:bg-gray-700 hover:text-white md:border-0 md:hover:bg-transparent md:dark:hover:bg-transparent menu"
-							>
+							<a href="#" className="text-gray-400 hover:text-white menu">
 								Gerência
 							</a>
 						</li>
@@ -77,7 +68,7 @@ export function ReactNavbar({ showSidebar, isCollapsed }: Props) {
 				<Dropdown label={<Avatar alt="user settings" rounded />} inline>
 					<Dropdown.Header>
 						<span className="block text-sm">Alan Turing</span>
-						<span className="block truncate text-sm font-medium">alan.turing@gmail.com</span>
+						<span className="block text-sm font-medium">alan.turing@gmail.com</span>
 					</Dropdown.Header>
 					<Dropdown.Item>Perfil</Dropdown.Item>
 					<Dropdown.Item>Configurações</Dropdown.Item>
