@@ -1,10 +1,10 @@
 import { useState } from "react";
 import classNames from "clsx";
 
+import { useWindowDimensions } from "@/hooks/useWindowDimensions";
+
 import { DefaultCard } from "@/components/DefaultCard";
 import { Dashboard } from "@/components/Dashboard";
-
-import { useWindowDimensions } from "@/hooks/useWindowDimensions";
 
 export function App() {
 	const [isCollapsed, setIsCollapsed] = useState(false);
