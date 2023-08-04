@@ -1,7 +1,5 @@
 import { useState } from "react";
 
-import { useWindowDimensions } from "@/hooks/useWindowDimensions";
-
 import { ReactSidebar } from "@/components/Dashboard/ReactSidebar";
 import { ReactNavbar } from "@/components/Dashboard/ReactNavbar";
 
@@ -12,7 +10,6 @@ type Props = {
 
 export function Dashboard({ isCollapsed, setIsCollapsed }: Props) {
 	const [toggled, setToggled] = useState(false);
-	const { width } = useWindowDimensions();
 
 	const showSidebar = () => setToggled(true);
 	const hideNavbar = () => setToggled(false);
@@ -24,10 +21,9 @@ export function Dashboard({ isCollapsed, setIsCollapsed }: Props) {
 				setIsCollapsed={setIsCollapsed}
 				toggled={toggled}
 				hideNavbar={hideNavbar}
-				width={width}
 			/>
 
-			<ReactNavbar showSidebar={showSidebar} isCollapsed={isCollapsed} width={width} />
+			<ReactNavbar showSidebar={showSidebar} isCollapsed={isCollapsed} />
 		</>
 	);
 }

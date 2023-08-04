@@ -2,27 +2,34 @@ import classNames from "clsx";
 
 import { Avatar, Dropdown } from "flowbite-react";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { FiLogOut } from "react-icons/fi";
+
+import { useWindowDimensions } from "@/hooks/useWindowDimensions";
 
 import "./styles.scss";
 
 type Props = {
 	showSidebar: () => void;
 	isCollapsed: boolean;
-	width: number;
 };
 
-export function ReactNavbar({ showSidebar, isCollapsed, width }: Props) {
+export function ReactNavbar({ showSidebar, isCollapsed }: Props) {
+	const { width } = useWindowDimensions();
+
 	const widthBelowWide = width < 769;
 
+	function getDynamicClass() {
+		if (isCollapsed && !widthBelowWide) {
+			return "ease-in duration-300 ps-[8.5rem] pe-14";
+		} else if (!isCollapsed && !widthBelowWide) {
+			return "ease-in-out duration-[400ms] ps-[19.13rem] pe-14";
+		}
+
+		return "px-8";
+	}
+
 	return (
-		<div
-			className={classNames(
-				"bg-gray-800 duration-150 pe-14 py-[1.19rem]",
-				isCollapsed
-					? "ease-in duration-300 ps-[8.5rem]"
-					: " ease-in-out duration-[400ms] ps-[19.13rem]"
-			)}
-		>
+		<div className={classNames("bg-gray-800 duration-150 py-[1.19rem]", getDynamicClass())}>
 			<div className="mx-auto flex flex-wrap items-center justify-between">
 				{widthBelowWide && (
 					<button onClick={showSidebar}>
@@ -69,14 +76,15 @@ export function ReactNavbar({ showSidebar, isCollapsed, width }: Props) {
 
 				<Dropdown label={<Avatar alt="user settings" rounded />} inline>
 					<Dropdown.Header>
-						<span className="block text-sm">Alan turing</span>
-						<span className="block truncate text-sm font-medium">alan@flowbite.com</span>
+						<span className="block text-sm">Alan Turing</span>
+						<span className="block truncate text-sm font-medium">alan.turing@gmail.com</span>
 					</Dropdown.Header>
-					<div>teste 1</div>
-					<div>teste 2</div>
-					<div>teste 3</div>
+					<Dropdown.Item>Perfil</Dropdown.Item>
+					<Dropdown.Item>Configurações</Dropdown.Item>
 					<Dropdown.Divider />
-					<div>Sair (icon)</div>
+					<Dropdown.Item>
+						<p className="mr-1">Sair</p> <FiLogOut />
+					</Dropdown.Item>
 				</Dropdown>
 			</div>
 		</div>

@@ -6,6 +6,8 @@ import { BsPersonFill, BsPersonFillGear } from "react-icons/bs";
 import { RiArrowLeftDoubleFill } from "react-icons/ri";
 import { MdSpaceDashboard } from "react-icons/md";
 
+import { useWindowDimensions } from "@/hooks/useWindowDimensions";
+
 import "./styles.scss";
 
 type Props = {
@@ -13,14 +15,15 @@ type Props = {
 	setIsCollapsed: (setIsCollapsed: boolean) => void;
 	toggled: boolean;
 	hideNavbar: () => void;
-	width: number;
 };
 
 type Section = {
 	sectionName: string;
 };
 
-export function ReactSidebar({ isCollapsed, setIsCollapsed, toggled, hideNavbar, width }: Props) {
+export function ReactSidebar({ isCollapsed, setIsCollapsed, toggled, hideNavbar }: Props) {
+	const { width } = useWindowDimensions();
+
 	const widthBelowWide = width < 769;
 
 	const Section = ({ sectionName }: Section) => {
