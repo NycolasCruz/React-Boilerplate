@@ -10,17 +10,21 @@
 - Prettier
 - ESLint
 - Storybook
+- Tailwindcss
+- Flowbite
 
 ## 🖥️ Sobre
 
-<p align="justify">Projeto open source de um boilerplate de uma aplicação React gerada com Vite, possuindo ESLint + Prettier, aliases path e Storybook.</p>
+<p align="justify">Projeto open source de um boilerplate de uma aplicação React gerada com Vite, que possui ESLint + Prettier, aliases path, Storybook, sidebar e navbar responsivos e tailwind.</p>
 
-## 🔧 Comandos Utilizados
+## 🔧 Principais Comandos Utilizados
 
 - yarn create vite (Vite)
 - yarn create @eslint/config (ESLint)
 - yarn add eslint-config-prettier prettier -D (Prettier)
 - npx storybook@latest init (Storybook)
+- yarn add -D tailwindcss postcss autoprefixer (Tailwindcss)
+- npx tailwindcss init -p (Tailwindcss init)
 
 ## 🕹️ Instalação
 

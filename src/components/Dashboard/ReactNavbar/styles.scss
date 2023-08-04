@@ -1,0 +1,31 @@
+$yellow: #ffd700;
+
+.menu {
+	position: relative;
+
+	&::before,
+	&::after {
+		content: "";
+		position: absolute;
+		bottom: -1.78rem;
+		width: 0;
+		height: 3px;
+		background-color: $yellow;
+		transition: width 0.2s ease-out;
+	}
+
+	&::before {
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	&::after {
+		right: 50%;
+		transform: translateX(50%);
+	}
+
+	&:hover::before,
+	&:hover::after {
+		width: 150%;
+	}
+}
