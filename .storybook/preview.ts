@@ -5,10 +5,10 @@ import "../src/global.scss";
 export const parameters = {
 	controls: {
 		matchers: {
-			color: /(background|color)$/i
-		}
+			color: /(background|color)$/i,
+		},
 	},
 	docs: {
-		theme: themes.dark
-	}
+		theme: themes.dark,
+	},
 };
