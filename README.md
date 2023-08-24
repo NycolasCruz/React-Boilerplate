@@ -34,7 +34,7 @@ Instale também o Yarn caso não o tenha com o comando ````npm i -g yarn````, em
 
 Utilize o comando ````yarn```` para instalar os pacotes necessários.
 
-OBS: o deploy desta aplicação está sendo feito <a href="https://react-boilerplatee.netlify.app" target="_blank">neste link</a> 
+OBS: o deploy desta aplicação está sendo feito <a href="https://react-boilerplatee.netlify.app" target="_blank">neste link</a>.
 
 ## 🐧 Autor
 
