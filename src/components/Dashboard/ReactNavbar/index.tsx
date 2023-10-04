@@ -83,7 +83,7 @@ export function ReactNavbar({ showSidebar, isCollapsed }: Props) {
 								<li>
 									<button
 										type="button"
-										className="flex items-center  gap-1 w-full hover:bg-gray-600 py-2 px-4"
+										className="flex items-center gap-1 w-full hover:bg-gray-600 py-2 px-4"
 									>
 										Sair <FiLogOut />
 									</button>
