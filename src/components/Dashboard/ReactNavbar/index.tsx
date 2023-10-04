@@ -45,10 +45,10 @@ export function ReactNavbar({ showSidebar, isCollapsed }: Props) {
 				)}
 
 				<div className={classNames("w-auto", widthBelowWide ? "hidden" : "block")}>
-					<ul className="flex flex-row space-x-8 text-sm font-medium text-gray-400">
-						<li className="tab-menu">Dashboard</li>
-						<li className="tab-menu">Perfil</li>
-						<li className="tab-menu">Gerência</li>
+					<ul className="flex flex-row space-x-8 text-sm font-medium text-gray-400 tab-menu">
+						<li>Dashboard</li>
+						<li>Perfil</li>
+						<li>Gerência</li>
 					</ul>
 				</div>
 
@@ -90,6 +90,7 @@ export function ReactNavbar({ showSidebar, isCollapsed }: Props) {
 								</li>
 							</ul>
 						}
+						trigger={widthBelowWide ? "click" : "hover"}
 						arrow={false}
 					>
 						<Avatar alt="user settings" rounded />
