@@ -1,31 +1,27 @@
 $yellow: #ffd700;
+$white: #ffffff;
 
-.menu {
+.tab-menu {
+	cursor: pointer;
 	position: relative;
 
-	&::before,
-	&::after {
+	&:hover {
+		color: $white;
+	}
+
+	&::before {
 		content: "";
 		position: absolute;
-		bottom: -1.78rem;
+		bottom: -1.9rem;
 		width: 0;
 		height: 3px;
 		background-color: $yellow;
 		transition: width 0.2s ease-out;
-	}
-
-	&::before {
 		left: 50%;
 		transform: translateX(-50%);
 	}
 
-	&::after {
-		right: 50%;
-		transform: translateX(50%);
-	}
-
-	&:hover::before,
-	&:hover::after {
+	&:hover::before {
 		width: 150%;
 	}
 }
