@@ -19,7 +19,7 @@ export function App() {
 			return "ease-in-out duration-[400ms] ml-[18.13rem]";
 		}
 
-		return "px-8";
+		return "duration-150 px-8";
 	}
 
 	return (

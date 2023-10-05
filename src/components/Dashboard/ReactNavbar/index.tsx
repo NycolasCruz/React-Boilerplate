@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import classNames from "clsx";
 
 import { BsMoonStarsFill, BsSunFill } from "react-icons/bs";
@@ -15,9 +16,17 @@ type Props = {
 };
 
 export function ReactNavbar({ showSidebar, isCollapsed }: Props) {
+	const mode = localStorage?.mode;
+	const [isDarkMode, setIsDarkMode] = useState(mode ? mode === "dark" : true);
 	const { width } = useWindowDimensions();
 
 	const widthBelowWide = width < 769;
+
+	function handleThemeMode(mode: "light" | "dark") {
+		localStorage.setItem("mode", mode);
+
+		setIsDarkMode(!isDarkMode);
+	}
 
 	function getDynamicClass() {
 		if (isCollapsed && !widthBelowWide) {
@@ -29,8 +38,20 @@ export function ReactNavbar({ showSidebar, isCollapsed }: Props) {
 		return "px-8";
 	}
 
+	useEffect(() => {
+		const style = document.documentElement.style;
+
+		if (isDarkMode) {
+			style.setProperty("--body-background-color", "#111827");
+		} else {
+			style.setProperty("--body-background-color", "#dcdddf");
+		}
+	}, [isDarkMode]);
+
 	return (
-		<div className={classNames("bg-gray-800 duration-150 py-[1.19rem]", getDynamicClass())}>
+		<div
+			className={classNames("shadow-lg bg-gray-800 duration-150 py-[1.19rem]", getDynamicClass())}
+		>
 			<div className="mx-auto flex flex-wrap items-center justify-between">
 				{widthBelowWide && (
 					<button onClick={showSidebar}>
@@ -53,8 +74,21 @@ export function ReactNavbar({ showSidebar, isCollapsed }: Props) {
 				</div>
 
 				<div className="flex items-center gap-5">
-					<BsSunFill className="text-2xl text-gray-300 cursor-pointer" />
-					<BsMoonStarsFill className="text-xl text-gray-300 cursor-pointer" />
+					{isDarkMode ? (
+						<button
+							className="rounded-lg text-gray-400 hover:bg-gray-700 p-3 duration-100"
+							onClick={() => handleThemeMode("light")}
+						>
+							<BsMoonStarsFill />
+						</button>
+					) : (
+						<button
+							className="rounded-lg text-xl text-gray-400 hover:bg-gray-700 p-2.5 duration-100"
+							onClick={() => handleThemeMode("dark")}
+						>
+							<BsSunFill />
+						</button>
+					)}
 
 					<Tooltip
 						content={
