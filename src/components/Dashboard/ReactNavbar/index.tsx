@@ -1,6 +1,8 @@
+import { useEffect, useState } from "react";
 import classNames from "clsx";
 
-import { Avatar, Dropdown } from "flowbite-react";
+import { BsMoonStarsFill, BsSunFill } from "react-icons/bs";
+import { Avatar, Tooltip } from "flowbite-react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FiLogOut } from "react-icons/fi";
 
@@ -14,9 +16,17 @@ type Props = {
 };
 
 export function ReactNavbar({ showSidebar, isCollapsed }: Props) {
+	const mode = localStorage?.mode;
+	const [isDarkMode, setIsDarkMode] = useState(mode ? mode === "dark" : true);
 	const { width } = useWindowDimensions();
 
 	const widthBelowWide = width < 769;
+
+	function handleThemeMode(mode: "light" | "dark") {
+		localStorage.setItem("mode", mode);
+
+		setIsDarkMode(!isDarkMode);
+	}
 
 	function getDynamicClass() {
 		if (isCollapsed && !widthBelowWide) {
@@ -28,8 +38,20 @@ export function ReactNavbar({ showSidebar, isCollapsed }: Props) {
 		return "px-8";
 	}
 
+	useEffect(() => {
+		const style = document.documentElement.style;
+
+		if (isDarkMode) {
+			style.setProperty("--body-background-color", "#111827");
+		} else {
+			style.setProperty("--body-background-color", "#dcdddf");
+		}
+	}, [isDarkMode]);
+
 	return (
-		<div className={classNames("bg-gray-800 duration-150 py-[1.19rem]", getDynamicClass())}>
+		<div
+			className={classNames("shadow-lg bg-gray-800 duration-150 py-[1.19rem]", getDynamicClass())}
+		>
 			<div className="mx-auto flex flex-wrap items-center justify-between">
 				{widthBelowWide && (
 					<button onClick={showSidebar}>
@@ -39,44 +61,75 @@ export function ReactNavbar({ showSidebar, isCollapsed }: Props) {
 
 				{widthBelowWide && (
 					<div className="flex justify-center">
-						<h5 className="font-bold text-2xl text-slate-200 tracking-tight">Boilerplate</h5>
+						<h5 className="font-bold text-2xl tracking-tight">Boilerplate</h5>
 					</div>
 				)}
 
 				<div className={classNames("w-auto", widthBelowWide ? "hidden" : "block")}>
-					<ul className="flex flex-row space-x-8 text-sm font-medium">
-						<li>
-							<a href="#" className="text-gray-400 hover:text-white menu">
-								<p>Dashboard</p>
-							</a>
-						</li>
-
-						<li>
-							<a href="#" className="text-gray-400 hover:text-white menu">
-								Perfil
-							</a>
-						</li>
-
-						<li>
-							<a href="#" className="text-gray-400 hover:text-white menu">
-								Gerência
-							</a>
-						</li>
+					<ul className="flex flex-row space-x-8 text-sm font-medium text-gray-400 tab-menu">
+						<li>Dashboard</li>
+						<li>Perfil</li>
+						<li>Gerência</li>
 					</ul>
 				</div>
 
-				<Dropdown label={<Avatar alt="user settings" rounded />} inline>
-					<Dropdown.Header>
-						<span className="block text-sm">Alan Turing</span>
-						<span className="block text-sm font-medium">alan.turing@gmail.com</span>
-					</Dropdown.Header>
-					<Dropdown.Item>Perfil</Dropdown.Item>
-					<Dropdown.Item>Configurações</Dropdown.Item>
-					<Dropdown.Divider />
-					<Dropdown.Item>
-						<p className="mr-1">Sair</p> <FiLogOut />
-					</Dropdown.Item>
-				</Dropdown>
+				<div className="flex items-center gap-5">
+					{isDarkMode ? (
+						<button
+							className="rounded-lg text-gray-400 hover:bg-gray-700 p-3 duration-100"
+							onClick={() => handleThemeMode("light")}
+						>
+							<BsMoonStarsFill />
+						</button>
+					) : (
+						<button
+							className="rounded-lg text-xl text-gray-400 hover:bg-gray-700 p-2.5 duration-100"
+							onClick={() => handleThemeMode("dark")}
+						>
+							<BsSunFill />
+						</button>
+					)}
+
+					<Tooltip
+						content={
+							<ul className="text-gray-200">
+								<div className="py-2 px-4">
+									<span className="block">Seu Nome</span>
+									<span>seuemail@gmail.com</span>
+								</div>
+
+								<div className="my-1 h-px bg-gray-600"></div>
+
+								<li>
+									<button type="button" className="flex w-full hover:bg-gray-600 py-2 px-4">
+										Perfil
+									</button>
+								</li>
+
+								<li>
+									<button type="button" className="flex w-full hover:bg-gray-600 py-2 px-4">
+										Configurações
+									</button>
+								</li>
+
+								<div className="my-1 h-px bg-gray-600"></div>
+
+								<li>
+									<button
+										type="button"
+										className="flex items-center gap-1 w-full hover:bg-gray-600 py-2 px-4"
+									>
+										Sair <FiLogOut />
+									</button>
+								</li>
+							</ul>
+						}
+						trigger={widthBelowWide ? "click" : "hover"}
+						arrow={false}
+					>
+						<Avatar alt="user settings" rounded />
+					</Tooltip>
+				</div>
 			</div>
 		</div>
 	);

@@ -5,6 +5,7 @@ import { Sidebar, Menu, MenuItem, SubMenu, MenuItemStyles } from "react-pro-side
 import { BsPersonFill, BsPersonFillGear } from "react-icons/bs";
 import { RiArrowLeftDoubleFill } from "react-icons/ri";
 import { MdSpaceDashboard } from "react-icons/md";
+import { IoCloseSharp } from "react-icons/io5";
 
 import { useWindowDimensions } from "@/hooks/useWindowDimensions";
 
@@ -80,18 +81,24 @@ export function ReactSidebar({ isCollapsed, setIsCollapsed, toggled, hideNavbar 
 				<Menu menuItemStyles={buttonStyles}>
 					<div
 						className={classNames(
-							"flex items-center  mt-5 mb-3 px-3",
-							isCollapsed ? "justify-center" : "justify-between"
+							"flex items-center mt-5 mb-3",
+							isCollapsed ? "justify-center mr-[0.3rem]" : "justify-between px-3"
 						)}
 					>
 						{!isCollapsed && (
-							<h5 className="font-bold text-2xl text-slate-200 tracking-tight">Boilerplate</h5>
+							<>
+								<h5 className="font-bold text-2xl tracking-tight">Boilerplate</h5>
+
+								{widthBelowWide && (
+									<IoCloseSharp className="text-2xl cursor-pointer -mt-5" onClick={hideNavbar} />
+								)}
+							</>
 						)}
 
 						{/* collapse button */}
 						{!widthBelowWide && (
 							<button className="ease-out duration-300 mt-1" onClick={handleSidebarCollapse}>
-								<RiArrowLeftDoubleFill className="text-3xl hover:text-sky-500 duration-300" />
+								<RiArrowLeftDoubleFill className="text-3xl hover:text-sky-500 duration-100" />
 							</button>
 						)}
 					</div>
