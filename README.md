@@ -15,7 +15,7 @@
 
 ## 🖥️ Sobre
 
-<p align="justify">Projeto open source de um boilerplate de uma aplicação React gerada com Vite, que possui ESLint + Prettier, aliases path, Storybook, sidebar e navbar responsivos e tailwind.</p>
+<p align="justify">Projeto open source de um boilerplate de uma aplicação React gerada com Vite, que possui ESLint + Prettier, aliases path, Storybook, sidebar e navbar responsivos, dark mode e tailwind.</p>
 
 ## 🔧 Principais Comandos Utilizados
 
