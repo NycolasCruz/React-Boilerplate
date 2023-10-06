@@ -1,21 +1,24 @@
-$darkSlateBlue: #1f2937;
-$yellow: #ffd700;
-
-.text-yellow-350 {
-	color: $yellow;
-}
+$darkSlateBlue: #222d3b;
 
 .css-1wvake5 {
-	border-color: $darkSlateBlue !important;
 	border-right-width: 0 !important;
 	position: fixed !important;
-}
 
-.css-1jp6z4y {
-	border-radius: 0 !important;
-}
+	.ps-menu-button:hover,
+	.ps-menu-button:focus {
+		.ps-menu-icon {
+			color: #ffd700;
+			transition: all 150ms;
+		}
+	}
 
-.ps-submenu-expand-icon {
-	transform: scale(1.6);
-	display: flex;
+	.css-1jp6z4y {
+		border-radius: 5px !important;
+		background-color: $darkSlateBlue !important;
+	}
+
+	.ps-submenu-expand-icon {
+		transform: scale(1.6);
+		display: flex;
+	}
 }

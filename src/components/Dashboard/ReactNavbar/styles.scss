@@ -1,27 +1,7 @@
-$yellow: #ffd700;
-$white: #ffffff;
+.dark #user-avatar div div {
+	background: var(--gray-600);
+}
 
-.tab-menu li {
-	cursor: pointer;
-	position: relative;
-
-	&:hover {
-		color: $white;
-	}
-
-	&::before {
-		content: "";
-		position: absolute;
-		bottom: -1.9rem;
-		width: 0;
-		height: 3px;
-		background-color: $yellow;
-		transition: width 0.2s ease-out;
-		left: 50%;
-		transform: translateX(-50%);
-	}
-
-	&:hover::before {
-		width: 150%;
-	}
+#user-avatar div div {
+	background: var(--gray-300);
 }
