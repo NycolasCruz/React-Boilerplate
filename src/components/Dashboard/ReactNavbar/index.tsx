@@ -75,17 +75,17 @@ export function ReactNavbar({ showSidebar, isCollapsed }: Props) {
 
 				<div className={classNames("w-auto", widthBelowWide ? "hidden" : "block")}>
 					<ul className="flex flex-row space-x-8 text-sm font-medium text-gray-500 dark:text-gray-400">
-						<li className="cursor-pointer relative hover:text-gray-800 dark:hover:text-white before:content-[''] before:absolute before:-bottom-[1.9rem] before:left-2/4 before:w-0 before:h-[3px] before:bg-[#8a51ff] dark:before:bg-[#ffd700] before:duration-200 before:ease-out before:-translate-x-1/2 hover:before:w-[150%]">
+						<button className="relative hover:text-gray-900 focus:text-gray-900 before:content-[''] before:absolute before:-bottom-[1.9rem] before:left-2/4 before:w-0 before:h-[3px] before:bg-[#8a51ff] before:duration-200 before:ease-out before:-translate-x-1/2 hover:before:w-[150%] focus:before:w-[150%] dark:hover:text-white dark:before:bg-[#ffd700] dark:focus:text-white">
 							Dashboard
-						</li>
+						</button>
 
-						<li className="cursor-pointer relative hover:text-gray-800 dark:hover:text-white before:content-[''] before:absolute before:-bottom-[1.9rem] before:left-2/4 before:w-0 before:h-[3px] before:bg-[#8a51ff] dark:before:bg-[#ffd700] before:duration-200 before:ease-out before:-translate-x-1/2 hover:before:w-[150%]">
+						<button className="relative hover:text-gray-900 focus:text-gray-900 before:content-[''] before:absolute before:-bottom-[1.9rem] before:left-2/4 before:w-0 before:h-[3px] before:bg-[#8a51ff] before:duration-200 before:ease-out before:-translate-x-1/2 hover:before:w-[150%] focus:before:w-[150%] dark:hover:text-white dark:before:bg-[#ffd700] dark:focus:text-white">
 							Perfil
-						</li>
+						</button>
 
-						<li className="cursor-pointer relative hover:text-gray-800 dark:hover:text-white before:content-[''] before:absolute before:-bottom-[1.9rem] before:left-2/4 before:w-0 before:h-[3px] before:bg-[#8a51ff] dark:before:bg-[#ffd700] before:duration-200 before:ease-out before:-translate-x-1/2 hover:before:w-[150%]">
+						<button className="relative hover:text-gray-900 focus:text-gray-900 before:content-[''] before:absolute before:-bottom-[1.9rem] before:left-2/4 before:w-0 before:h-[3px] before:bg-[#8a51ff] before:duration-200 before:ease-out before:-translate-x-1/2 hover:before:w-[150%] focus:before:w-[150%] dark:hover:text-white dark:before:bg-[#ffd700] dark:focus:text-white">
 							Gerência
-						</li>
+						</button>
 					</ul>
 				</div>
 
@@ -117,13 +117,13 @@ export function ReactNavbar({ showSidebar, isCollapsed }: Props) {
 								<div className="my-1 h-px bg-gray-600"></div>
 
 								<li>
-									<button type="button" className="flex w-full rounded hover:bg-gray-600 py-2 px-4">
+									<button className="flex w-full rounded hover:bg-gray-600 py-2 px-4">
 										Perfil
 									</button>
 								</li>
 
 								<li>
-									<button type="button" className="flex w-full rounded hover:bg-gray-600 py-2 px-4">
+									<button className="flex w-full rounded hover:bg-gray-600 py-2 px-4">
 										Configurações
 									</button>
 								</li>
@@ -132,7 +132,6 @@ export function ReactNavbar({ showSidebar, isCollapsed }: Props) {
 
 								<li>
 									<button
-										type="button"
 										className="flex items-center gap-1 w-full rounded hover:bg-gray-600 py-2 px-4"
 									>
 										Sair <FiLogOut />

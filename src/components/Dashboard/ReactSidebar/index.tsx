@@ -105,23 +105,17 @@ export function ReactSidebar({ isCollapsed, setIsCollapsed, toggled, hideNavbar 
 
 					<Section sectionName="Geral" />
 
-					<MenuItem
-						className="text-gray-400"
-						icon={<MdSpaceDashboard className="text-xl text-[#ffd700]" />}
-					>
+					<MenuItem className="text-gray-400" icon={<MdSpaceDashboard className="text-xl" />}>
 						Dashboard
 					</MenuItem>
 
-					<MenuItem
-						className="text-gray-400"
-						icon={<BsPersonFill className="text-xl text-[#ffd700]" />}
-					>
+					<MenuItem className="text-gray-400" icon={<BsPersonFill className="text-xl" />}>
 						Perfil
 					</MenuItem>
 
 					<SubMenu
 						className="text-gray-400"
-						icon={<BsPersonFillGear className="text-xl text-[#ffd700]" />}
+						icon={<BsPersonFillGear className="text-xl" />}
 						label="Gerência"
 					>
 						<MenuItem>Empresas</MenuItem>
