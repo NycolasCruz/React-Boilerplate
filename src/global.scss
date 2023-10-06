@@ -2,16 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-	--body-background-color: #111827;
-}
-
 $opaqueWhite: #dcdddf;
+$darkBlue: #111827;
+$gray400: #d1d5db;
+
+:root {
+	--body-transition-duration: 300ms;
+}
 
 body {
 	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 	color: $opaqueWhite;
-	background-color: var(--body-background-color);
 	margin: 0;
-	transition-duration: 200ms;
+	background-color: $opaqueWhite;
+	transition-duration: var(--body-transition-duration);
+}
+
+.dark body {
+	background-color: $darkBlue;
+}
+
+#user-avatar div div {
+	background: $gray400;
 }
