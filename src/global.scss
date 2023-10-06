@@ -4,9 +4,10 @@
 
 $opaqueWhite: #dcdddf;
 $darkBlue: #111827;
-$gray400: #d1d5db;
 
 :root {
+	--gray-300: #d1d5db;
+	--gray-600: #4b5563;
 	--body-transition-duration: 300ms;
 }
 
@@ -20,8 +21,4 @@ body {
 
 .dark body {
 	background-color: $darkBlue;
-}
-
-#user-avatar div div {
-	background: $gray400;
 }

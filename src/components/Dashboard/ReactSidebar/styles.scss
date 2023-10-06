@@ -1,16 +1,16 @@
-$darkSlateBlue: #1f2937;
+$darkSlateBlue: #222d3b;
 
 .css-1wvake5 {
-	border-color: $darkSlateBlue !important;
 	border-right-width: 0 !important;
 	position: fixed !important;
-}
 
-.css-1jp6z4y {
-	border-radius: 0 !important;
-}
+	.css-1jp6z4y {
+		border-radius: 5px !important;
+		background-color: $darkSlateBlue !important;
+	}
 
-.ps-submenu-expand-icon {
-	transform: scale(1.6);
-	display: flex;
+	.ps-submenu-expand-icon {
+		transform: scale(1.6);
+		display: flex;
+	}
 }
