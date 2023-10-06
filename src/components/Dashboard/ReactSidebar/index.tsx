@@ -98,7 +98,7 @@ export function ReactSidebar({ isCollapsed, setIsCollapsed, toggled, hideNavbar 
 						{/* collapse button */}
 						{!widthBelowWide && (
 							<button className="ease-out duration-300 mt-1" onClick={handleSidebarCollapse}>
-								<RiArrowLeftDoubleFill className="text-3xl hover:text-sky-500 duration-100" />
+								<RiArrowLeftDoubleFill className="text-3xl hover:text-gray-400 duration-150" />
 							</button>
 						)}
 					</div>
@@ -107,21 +107,21 @@ export function ReactSidebar({ isCollapsed, setIsCollapsed, toggled, hideNavbar 
 
 					<MenuItem
 						className="text-slate-400"
-						icon={<MdSpaceDashboard className="text-xl text-yellow-350" />}
+						icon={<MdSpaceDashboard className="text-xl text-[#ffd700]" />}
 					>
 						Dashboard
 					</MenuItem>
 
 					<MenuItem
 						className="text-slate-400"
-						icon={<BsPersonFill className="text-xl text-yellow-350" />}
+						icon={<BsPersonFill className="text-xl text-[#ffd700]" />}
 					>
 						Perfil
 					</MenuItem>
 
 					<SubMenu
 						className="text-slate-400"
-						icon={<BsPersonFillGear className="text-xl text-yellow-350" />}
+						icon={<BsPersonFillGear className="text-xl text-[#ffd700]" />}
 						label="Gerência"
 					>
 						<MenuItem>Empresas</MenuItem>
