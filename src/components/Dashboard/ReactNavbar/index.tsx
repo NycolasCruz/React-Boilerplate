@@ -32,9 +32,9 @@ export function ReactNavbar({ showSidebar, isCollapsed }: Props) {
 
 	function getDynamicClass() {
 		if (isCollapsed && !widthBelowWide) {
-			return "ease-in duration-300 ps-[8.5rem] pe-14";
+			return "ease-in duration-300 pl-[8.5rem] pr-14";
 		} else if (!isCollapsed && !widthBelowWide) {
-			return "ease-in-out duration-[400ms] ps-[19.13rem] pe-14";
+			return "ease-in-out duration-[400ms] pl-[19.13rem] pr-14";
 		}
 
 		return "px-8";
@@ -60,7 +60,7 @@ export function ReactNavbar({ showSidebar, isCollapsed }: Props) {
 		<div className={classNames("shadow-lg dark:bg-gray-800 py-[1.19rem]", getDynamicClass())}>
 			<div className="mx-auto flex flex-wrap items-center justify-between">
 				{widthBelowWide && (
-					<button onClick={showSidebar}>
+					<button className="mr-[70px]" onClick={showSidebar}>
 						<GiHamburgerMenu className="text-3xl duration-150 text-gray-400 hover:text-gray-500 dark:text-gray-300 dark:hover:text-gray-400" />
 					</button>
 				)}
@@ -92,14 +92,14 @@ export function ReactNavbar({ showSidebar, isCollapsed }: Props) {
 				<div className="flex items-center gap-5">
 					{isDarkMode ? (
 						<button
-							className="rounded-lg text-xl text-gray-400 hover:bg-gray-700 p-2.5 duration-100"
+							className="rounded-lg text-xl text-gray-400 hover:bg-gray-700 duration-100 p-2.5"
 							onClick={() => handleThemeMode("light")}
 						>
 							<BsSunFill />
 						</button>
 					) : (
 						<button
-							className="rounded-lg text-gray-400 hover:bg-gray-300 p-3 duration-100"
+							className="rounded-lg text-gray-400 hover:bg-gray-300 duration-100 p-3"
 							onClick={() => handleThemeMode("dark")}
 						>
 							<BsMoonStarsFill />
@@ -114,7 +114,7 @@ export function ReactNavbar({ showSidebar, isCollapsed }: Props) {
 									<span>seuemail@gmail.com</span>
 								</div>
 
-								<div className="my-1 h-px bg-gray-600"></div>
+								<div className="h-px bg-gray-600 my-1"></div>
 
 								<li>
 									<button className="flex w-full rounded hover:bg-gray-600 py-2 px-4">
@@ -128,12 +128,10 @@ export function ReactNavbar({ showSidebar, isCollapsed }: Props) {
 									</button>
 								</li>
 
-								<div className="my-1 h-px bg-gray-600"></div>
+								<div className="h-px bg-gray-600 my-1 "></div>
 
 								<li>
-									<button
-										className="flex items-center gap-1 w-full rounded hover:bg-gray-600 py-2 px-4"
-									>
+									<button className="flex items-center gap-1 w-full rounded hover:bg-gray-600 py-2 px-4">
 										Sair <FiLogOut />
 									</button>
 								</li>
