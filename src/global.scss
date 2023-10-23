@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-$opaqueWhite: #dcdddf;
+$white: #ffffff;
 $darkBlue: #111827;
 
 :root {
@@ -13,9 +13,8 @@ $darkBlue: #111827;
 
 body {
 	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-	color: $opaqueWhite;
+	color: $white;
 	margin: 0;
-	background-color: $opaqueWhite;
 	transition-duration: var(--body-transition-duration);
 }
 
