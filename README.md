@@ -4,7 +4,7 @@
 
 <p>Projeto desenvolvido com as seguintes tecnologias:</p>
 
-- ReactJS
+- React
 - Vite
 - TypeScript
 - Prettier
