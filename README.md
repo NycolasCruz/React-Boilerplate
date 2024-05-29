@@ -17,7 +17,7 @@
 
 <p align="justify">Projeto open source de um boilerplate de uma aplicação React gerada com Vite, que possui ESLint + Prettier, aliases path, Storybook, sidebar e navbar responsivos, dark mode e tailwind.</p>
 
-## 🔧 Principais Comandos Utilizados
+## 🔧 Principais comandos utilizados
 
 - yarn create vite (Vite)
 - yarn create @eslint/config (ESLint)
