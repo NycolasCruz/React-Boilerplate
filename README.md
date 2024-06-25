@@ -1,8 +1,6 @@
 <h1 align="center">React Boilerplate</h1>
 
-## 🚀 Tecnologias
-
-<p>Projeto desenvolvido com as seguintes tecnologias:</p>
+## 🚀 Principais tecnologias utilizadas
 
 - React
 - Vite
