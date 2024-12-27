@@ -2,7 +2,6 @@ NC='\033[0m'
 BGreen='\033[30;42m'
 BIYellow='\033[1;93m'
 
-# Executando os testes
 echo -e "${BIYellow}🧪 Rodando testes... ${NC}"
 echo -e "${BIYellow}⚠️  O push será impedido se algum teste falhar... ${NC}"
 yarn test --passWithNoTests > /dev/null >&1

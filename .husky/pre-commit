@@ -3,19 +3,15 @@ BGreen='\033[30;42m'
 BIPink='\033[1;35m'
 BIBlue='\033[1;34m'
 
-# Identificando arquivos staged
 STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM) || true
 
-# Formatando e verificando cada arquivo alterado
 for FILE in $STAGED_FILES; do
-    # Verificando se o arquivo tem uma extensão suportada pelo Prettier
     if [[ $FILE =~ \.(js|jsx|ts|tsx|css|scss|json|md|html|yml|yaml)$ ]]; then
         echo -e "${BIPink}🌸 Formatando ${FILE}... ${NC}"
         yarn prettier --write "${FILE}" > /dev/null >&1
         git add "${FILE}"
     fi
 
-    # Verificando com ESLint apenas arquivos com extensões específicas
     if [[ $FILE =~ \.(js|jsx|ts|tsx|css|scss)$ ]]; then
         echo -e "${BIBlue}🔍 Verificando ${FILE} com ESLint... ${NC}"
         yarn eslint "${FILE}" --fix --max-warnings=0 > /dev/null >&1
