@@ -17,11 +17,4 @@ export default defineConfig({
 	server: {
 		port: 3011,
 	},
-	css: {
-		preprocessorOptions: {
-			scss: {
-				api: "modern-compiler",
-			},
-		},
-	},
 });
