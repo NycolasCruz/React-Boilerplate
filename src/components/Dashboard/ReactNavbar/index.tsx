@@ -24,7 +24,11 @@ export function ReactNavbar({ showSidebar, isCollapsed }: Props) {
 
 	function handleThemeMode(mode: "light" | "dark") {
 		if (html) {
-			mode === "dark" ? (html.className = "dark") : (html.className = "");
+			if (mode === "dark") {
+				html.className = "dark";
+			} else {
+				html.className = "";
+			}
 		}
 
 		setIsDarkMode(!isDarkMode);

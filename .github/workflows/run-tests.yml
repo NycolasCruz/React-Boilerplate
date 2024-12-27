@@ -1,0 +1,66 @@
+name: Run tests
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  run_tests:
+    runs-on: ubuntu-latest
+    if: github.event.issue.pull_request && github.event.comment.body == 'test'
+    permissions: write-all
+
+    steps:
+      - name: Get PR number
+        id: get_pr_number
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PR_URL="${{ github.event.issue.pull_request.url }}"
+          PR_NUM=${PR_URL##*/}
+          echo "data=$PR_NUM" >> $GITHUB_OUTPUT
+
+      - name: Fetch PR info
+        uses: octokit/request-action@v2.x
+        id: fetch_pr_info
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          route: GET /repos/{owner}/{repo}/pulls/{pr}
+          owner: nycolascruz
+          repo: React-Boilerplate
+          pr: ${{ steps.get_pr_number.outputs.data }}
+          mediaType: |
+            format: raw
+
+      - name: Set commit status as pending
+        uses: myrotvorets/set-commit-status-action@master
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          status: pending
+          context: Run tests
+          sha: ${{ fromJson(steps.fetch_pr_info.outputs.data).head.sha }}
+
+      - name: Check out code
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ fromJson(steps.fetch_pr_info.outputs.data).head.sha }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Run tests
+        run: yarn test
+
+      - name: Set final commit status
+        uses: myrotvorets/set-commit-status-action@master
+        with:
+          sha: ${{ fromJson(steps.fetch_pr_info.outputs.data).head.sha }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          status: ${{ job.status }}
+          context: Run tests
