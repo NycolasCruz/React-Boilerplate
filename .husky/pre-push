@@ -4,7 +4,7 @@ BIYellow='\033[1;93m'
 
 echo -e "${BIYellow}🧪 Rodando testes... ${NC}"
 echo -e "${BIYellow}⚠️  O push será impedido se algum teste falhar... ${NC}"
-yarn test --passWithNoTests > /dev/null >&1
+yarn test > /dev/null >&1
 
 echo -e "\n\n${BGreen}                                   ${NC}"
 echo -e "${BGreen} 🎉 Tudo certo! Push concluído! 🎉 ${NC}"
