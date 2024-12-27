@@ -55,7 +55,7 @@ jobs:
         run: yarn
 
       - name: Run tests
-        run: yarn test --passWithNoTests
+        run: yarn test
 
       - name: Set final commit status
         uses: myrotvorets/set-commit-status-action@master
