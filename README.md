@@ -1,6 +1,6 @@
 <h1 align="center">React Boilerplate</h1>
 
-## 🚀 Boilerplate para uma aplicação React com Vite.
+## 🚀 Boilerplate para uma aplicação React com Vite
 
 #### Recursos incluídos:
 
