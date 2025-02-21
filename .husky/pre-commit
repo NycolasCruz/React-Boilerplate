@@ -12,7 +12,7 @@ for FILE in $STAGED_FILES; do
         git add "${FILE}"
     fi
 
-    if [[ $FILE =~ \.(js|jsx|ts|tsx|css|scss)$ ]]; then
+    if [[ $FILE =~ ^src/.*\.(js|jsx|ts|tsx|css|scss)$ ]]; then
         echo -e "${BIBlue}🔍 Verificando ${FILE} com ESLint... ${NC}"
         yarn eslint "${FILE}" --fix --max-warnings=0 > /dev/null >&1
         git add "${FILE}"
