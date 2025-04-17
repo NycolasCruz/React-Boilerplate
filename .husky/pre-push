@@ -1,12 +1,12 @@
-NC='\033[0m'
-BGreen='\033[30;42m'
-BIYellow='\033[1;93m'
+NC="\033[0m";
+BGreen="\033[30;42m";
+BIYellow="\033[1;93m";
 
-echo -e "${BIYellow}🧪 Rodando testes... ${NC}"
-echo -e "${BIYellow}⚠️  O push será impedido se algum teste falhar... ${NC}"
-yarn test > /dev/null >&1
+echo -e "${BIYellow}🧪 Rodando testes... ${NC}";
+echo -e "${BIYellow}⚠️  O push será impedido se algum teste falhar... ${NC}";
+yarn test > /dev/null >&1;
 
 echo -e "\n\n${BGreen}                                   ${NC}"
 echo -e "${BGreen} 🎉 Tudo certo! Push concluído! 🎉 ${NC}"
 echo -e "${BGreen}                                   ${NC}\n\n"
-exit 0
+exit 0;
