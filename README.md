@@ -22,6 +22,6 @@
 - npx tailwindcss init -p (**Tailwindcss init**)
 - yarn add -D @testing-library/dom @testing-library/jest-dom @testing-library/react jsdom vitest @testing-library/user-event @vitest/coverage-v8 (**Vitest e React Testing Library**)
 
-## 🐧 OBS:
+## 🐧 OBS
 
 - O deploy desta aplicação está sendo feito <a href="https://react-boilerplatee.netlify.app" target="_blank">neste link</a>.
