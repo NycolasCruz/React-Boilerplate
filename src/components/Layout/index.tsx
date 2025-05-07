@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import { ReactSidebar } from "@/components/Layout/ReactSidebar";
-import { ReactNavbar } from "@/components/Layout/ReactNavbar";
+import { Sidebar } from "@/components/Layout/Sidebar";
+import { Navbar } from "@/components/Layout/Navbar";
 
 type Props = {
 	isCollapsed: boolean;
@@ -12,18 +12,18 @@ export function Layout({ isCollapsed, setIsCollapsed }: Props) {
 	const [toggled, setToggled] = useState(false);
 
 	const showSidebar = () => setToggled(true);
-	const hideNavbar = () => setToggled(false);
+	const hideSidebar = () => setToggled(false);
 
 	return (
 		<>
-			<ReactSidebar
+			<Sidebar
 				isCollapsed={isCollapsed}
 				setIsCollapsed={setIsCollapsed}
 				toggled={toggled}
-				hideNavbar={hideNavbar}
+				hideSidebar={hideSidebar}
 			/>
 
-			<ReactNavbar showSidebar={showSidebar} isCollapsed={isCollapsed} />
+			<Navbar showSidebar={showSidebar} isCollapsed={isCollapsed} />
 		</>
 	);
 }

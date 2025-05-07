@@ -1,7 +1,7 @@
 import { useEffect, FormEvent } from "react";
 import classNames from "clsx";
 
-import { Sidebar, Menu, MenuItem, SubMenu, MenuItemStyles } from "react-pro-sidebar";
+import { Sidebar as ReactProSidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 import { BsPersonFill, BsPersonFillGear } from "react-icons/bs";
 import { RiArrowLeftDoubleFill } from "react-icons/ri";
 import { MdSpaceDashboard } from "react-icons/md";
@@ -9,20 +9,21 @@ import { IoCloseSharp } from "react-icons/io5";
 
 import { useWindowDimensions } from "@/hooks/useWindowDimensions";
 
+import { buttonStyles } from "./buttonStyles";
 import "./styles.scss";
 
 type Props = {
 	isCollapsed: boolean;
-	setIsCollapsed: (setIsCollapsed: boolean) => void;
+	setIsCollapsed: (isCollapsed: boolean) => void;
 	toggled: boolean;
-	hideNavbar: () => void;
+	hideSidebar: () => void;
 };
 
 type Section = {
 	sectionName: string;
 };
 
-export function ReactSidebar({ isCollapsed, setIsCollapsed, toggled, hideNavbar }: Props) {
+export function Sidebar({ isCollapsed, setIsCollapsed, toggled, hideSidebar }: Props) {
 	const { width } = useWindowDimensions();
 
 	const widthBelowWide = width < 769;
@@ -39,21 +40,6 @@ export function ReactSidebar({ isCollapsed, setIsCollapsed, toggled, hideNavbar 
 		return <div className="mb-10" />;
 	};
 
-	const buttonStyles: MenuItemStyles = {
-		button: ({ level }) => {
-			const mouseOverStyles = { "&:hover": { backgroundColor: "#18212e" } };
-
-			if (level === 0) {
-				return mouseOverStyles;
-			}
-
-			return {
-				backgroundColor: "#222d3b",
-				...mouseOverStyles,
-			};
-		},
-	};
-
 	function handleSidebarCollapse(event: FormEvent<HTMLButtonElement>) {
 		const icon = event.currentTarget;
 		icon?.classList.toggle("-rotate-180");
@@ -64,19 +50,19 @@ export function ReactSidebar({ isCollapsed, setIsCollapsed, toggled, hideNavbar 
 	useEffect(() => {
 		if (widthBelowWide) {
 			setIsCollapsed(false);
-			hideNavbar();
+			hideSidebar();
 		}
 	}, [width]);
 
 	return (
 		<>
-			<Sidebar
+			<ReactProSidebar
 				className="h-screen border-r-0"
 				collapsed={isCollapsed}
 				toggled={toggled}
 				breakPoint="md"
 				backgroundColor="#1f2937"
-				onBackdropClick={hideNavbar}
+				onBackdropClick={hideSidebar}
 			>
 				<Menu menuItemStyles={buttonStyles}>
 					<div
@@ -90,7 +76,7 @@ export function ReactSidebar({ isCollapsed, setIsCollapsed, toggled, hideNavbar 
 								<h5 className="font-bold text-2xl tracking-tight">Boilerplate</h5>
 
 								{widthBelowWide && (
-									<IoCloseSharp className="text-2xl cursor-pointer -mt-5" onClick={hideNavbar} />
+									<IoCloseSharp className="text-2xl cursor-pointer -mt-5" onClick={hideSidebar} />
 								)}
 							</>
 						)}
@@ -122,7 +108,7 @@ export function ReactSidebar({ isCollapsed, setIsCollapsed, toggled, hideNavbar 
 						<MenuItem>Funcionários</MenuItem>
 					</SubMenu>
 				</Menu>
-			</Sidebar>
+			</ReactProSidebar>
 		</>
 	);
 }

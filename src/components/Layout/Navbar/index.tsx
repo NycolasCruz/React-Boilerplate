@@ -15,7 +15,7 @@ type Props = {
 	isCollapsed: boolean;
 };
 
-export function ReactNavbar({ showSidebar, isCollapsed }: Props) {
+export function Navbar({ showSidebar, isCollapsed }: Props) {
 	const [isDarkMode, setIsDarkMode] = useState(true);
 	const { width } = useWindowDimensions();
 
@@ -64,17 +64,17 @@ export function ReactNavbar({ showSidebar, isCollapsed }: Props) {
 		<div className={classNames("shadow-lg dark:bg-gray-800 py-[1.19rem]", getDynamicClass())}>
 			<div className="mx-auto flex flex-wrap items-center justify-between">
 				{widthBelowWide && (
-					<button className="mr-[70px]" onClick={showSidebar}>
-						<GiHamburgerMenu className="text-3xl duration-150 text-gray-400 hover:text-gray-500 dark:text-gray-300 dark:hover:text-gray-400" />
-					</button>
-				)}
+					<>
+						<button className="mr-[70px]" onClick={showSidebar}>
+							<GiHamburgerMenu className="text-3xl duration-150 text-gray-400 hover:text-gray-500 dark:text-gray-300 dark:hover:text-gray-400" />
+						</button>
 
-				{widthBelowWide && (
-					<div className="flex justify-center">
-						<h5 className="font-bold text-gray-500 text-2xl tracking-tight dark:text-gray-300">
-							Boilerplate
-						</h5>
-					</div>
+						<div className="flex justify-center">
+							<h5 className="font-bold text-gray-500 text-2xl tracking-tight dark:text-gray-300">
+								Boilerplate
+							</h5>
+						</div>
+					</>
 				)}
 
 				<div className={classNames("w-auto", widthBelowWide ? "hidden" : "block")}>
