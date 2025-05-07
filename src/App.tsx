@@ -8,9 +8,7 @@ import { Layout } from "@/components/Layout";
 
 export function App() {
 	const [isCollapsed, setIsCollapsed] = useState(false);
-	const { width } = useWindowDimensions();
-
-	const widthBelowWide = width < 769;
+	const { widthBelowWide } = useWindowDimensions();
 
 	function getDynamicClass() {
 		if (isCollapsed && !widthBelowWide) {
@@ -27,7 +25,10 @@ export function App() {
 			<Layout isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
 
 			<div className={classNames("py-7", getDynamicClass())}>
-				<DefaultCard title="Card Principal" description="descrição do card" />
+				<DefaultCard>
+					<DefaultCard.Title>Card Principal</DefaultCard.Title>
+					<DefaultCard.Description>descrição do card</DefaultCard.Description>
+				</DefaultCard>
 			</div>
 		</>
 	);
