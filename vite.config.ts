@@ -14,6 +14,13 @@ export default defineConfig({
 			types: `${path.resolve(__dirname, "./src/@types")}`,
 		},
 	},
+	css: {
+		preprocessorOptions: {
+			scss: {
+				silenceDeprecations: ["legacy-js-api"],
+			},
+		},
+	},
 	server: {
 		port: 3011,
 	},
