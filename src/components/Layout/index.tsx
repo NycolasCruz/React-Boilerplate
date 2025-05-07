@@ -1,14 +1,14 @@
 import { useState } from "react";
 
-import { ReactSidebar } from "@/components/Dashboard/ReactSidebar";
-import { ReactNavbar } from "@/components/Dashboard/ReactNavbar";
+import { ReactSidebar } from "@/components/Layout/ReactSidebar";
+import { ReactNavbar } from "@/components/Layout/ReactNavbar";
 
 type Props = {
 	isCollapsed: boolean;
 	setIsCollapsed: (isCollapsed: boolean) => void;
 };
 
-export function Dashboard({ isCollapsed, setIsCollapsed }: Props) {
+export function Layout({ isCollapsed, setIsCollapsed }: Props) {
 	const [toggled, setToggled] = useState(false);
 
 	const showSidebar = () => setToggled(true);

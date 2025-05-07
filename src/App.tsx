@@ -4,7 +4,7 @@ import classNames from "clsx";
 import { useWindowDimensions } from "@/hooks/useWindowDimensions";
 
 import { DefaultCard } from "@/components/DefaultCard";
-import { Dashboard } from "@/components/Dashboard";
+import { Layout } from "@/components/Layout";
 
 export function App() {
 	const [isCollapsed, setIsCollapsed] = useState(false);
@@ -24,7 +24,7 @@ export function App() {
 
 	return (
 		<>
-			<Dashboard isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
+			<Layout isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
 
 			<div className={classNames("py-7", getDynamicClass())}>
 				<DefaultCard title="Card Principal" description="descrição do card" />
