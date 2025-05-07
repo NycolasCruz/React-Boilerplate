@@ -24,9 +24,7 @@ type Section = {
 };
 
 export function Sidebar({ isCollapsed, setIsCollapsed, toggled, hideSidebar }: Props) {
-	const { width } = useWindowDimensions();
-
-	const widthBelowWide = width < 769;
+	const { width, widthBelowWide } = useWindowDimensions();
 
 	const Section = ({ sectionName }: Section) => {
 		if (!isCollapsed) {

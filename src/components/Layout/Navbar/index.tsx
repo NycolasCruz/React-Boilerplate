@@ -17,9 +17,8 @@ type Props = {
 
 export function Navbar({ showSidebar, isCollapsed }: Props) {
 	const [isDarkMode, setIsDarkMode] = useState(true);
-	const { width } = useWindowDimensions();
+	const { widthBelowWide } = useWindowDimensions();
 
-	const widthBelowWide = width < 769;
 	const html = document.querySelector("#html");
 
 	function handleThemeMode(mode: "light" | "dark") {
