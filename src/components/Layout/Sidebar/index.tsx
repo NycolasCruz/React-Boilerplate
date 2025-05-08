@@ -9,6 +9,8 @@ import { IoCloseSharp } from "react-icons/io5";
 
 import { useWindowDimensions } from "@/hooks/useWindowDimensions";
 
+import { Section } from "@/components/Layout/Sidebar/Section";
+
 import { buttonStyles } from "./buttonStyles";
 import "./styles.scss";
 
@@ -19,24 +21,8 @@ type Props = {
 	hideSidebar: () => void;
 };
 
-type Section = {
-	sectionName: string;
-};
-
 export function Sidebar({ isCollapsed, setIsCollapsed, toggled, hideSidebar }: Props) {
 	const { width, widthBelowWide } = useWindowDimensions();
-
-	const Section = ({ sectionName }: Section) => {
-		if (!isCollapsed) {
-			return (
-				<div className="mb-2 px-6">
-					<p className="text-xs font-semibold leading-5 opacity-70 tracking-wider">{sectionName}</p>
-				</div>
-			);
-		}
-
-		return <div className="mb-10" />;
-	};
 
 	function handleSidebarCollapse(event: FormEvent<HTMLButtonElement>) {
 		const icon = event.currentTarget;
@@ -87,7 +73,7 @@ export function Sidebar({ isCollapsed, setIsCollapsed, toggled, hideSidebar }: P
 						)}
 					</div>
 
-					<Section sectionName="Geral" />
+					<Section sectionName="Geral" isCollapsed={isCollapsed} />
 
 					<MenuItem className="text-gray-400" icon={<MdSpaceDashboard className="text-xl" />}>
 						Dashboard
