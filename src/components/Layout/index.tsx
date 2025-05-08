@@ -1,18 +1,29 @@
-import { useState } from "react";
+import { PropsWithChildren, useState } from "react";
+import classNames from "clsx";
+
+import { useWindowDimensions } from "@/hooks/useWindowDimensions";
 
 import { Sidebar } from "@/components/Layout/Sidebar";
 import { Navbar } from "@/components/Layout/Navbar";
 
-type Props = {
-	isCollapsed: boolean;
-	setIsCollapsed: (isCollapsed: boolean) => void;
-};
-
-export function Layout({ isCollapsed, setIsCollapsed }: Props) {
+export function Layout({ children }: PropsWithChildren) {
+	const [isCollapsed, setIsCollapsed] = useState(false);
 	const [toggled, setToggled] = useState(false);
 
 	const showSidebar = () => setToggled(true);
 	const hideSidebar = () => setToggled(false);
+
+	const { widthBelowWide } = useWindowDimensions();
+
+	function getDynamicClass() {
+		if (isCollapsed && !widthBelowWide) {
+			return "ease-in duration-300 ml-[7.5rem]";
+		} else if (!isCollapsed && !widthBelowWide) {
+			return "ease-in-out duration-[400ms] ml-[18.13rem]";
+		}
+
+		return "duration-150 px-8";
+	}
 
 	return (
 		<>
@@ -24,6 +35,8 @@ export function Layout({ isCollapsed, setIsCollapsed }: Props) {
 			/>
 
 			<Navbar showSidebar={showSidebar} isCollapsed={isCollapsed} />
+
+			<div className={classNames("py-7", getDynamicClass())}>{children}</div>
 		</>
 	);
 }
