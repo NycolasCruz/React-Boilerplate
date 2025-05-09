@@ -4,8 +4,8 @@ import classNames from "clsx";
 
 import { useWindowDimensions } from "@/hooks/useWindowDimensions";
 
-import { Sidebar } from "@/components/Layout/Sidebar";
-import { Navbar } from "@/components/Layout/Navbar";
+import { Sidebar } from "./Sidebar";
+import { Navbar } from "./Navbar";
 
 export function Layout() {
 	const [isCollapsed, setIsCollapsed] = useState(false);
