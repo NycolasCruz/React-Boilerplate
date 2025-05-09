@@ -8,6 +8,8 @@ import { FiLogOut } from "react-icons/fi";
 
 import { useWindowDimensions } from "@/hooks/useWindowDimensions";
 
+import { NavbarTab } from "./NavbarTab";
+
 import "./styles.scss";
 
 type Props = {
@@ -15,19 +17,19 @@ type Props = {
 	isCollapsed: boolean;
 };
 
+type ThemeMode = "dark" | "light";
+
 export function Navbar({ showSidebar, isCollapsed }: Props) {
 	const [isDarkMode, setIsDarkMode] = useState(true);
 	const { widthBelowWide } = useWindowDimensions();
 
-	const html = document.querySelector("#html");
+	function handleThemeMode(mode: ThemeMode) {
+		const html = document.getElementById("html") as HTMLHtmlElement;
 
-	function handleThemeMode(mode: "light" | "dark") {
-		if (html) {
-			if (mode === "dark") {
-				html.className = "dark";
-			} else {
-				html.className = "";
-			}
+		if (mode === "dark") {
+			html.className = "dark";
+		} else {
+			html.className = "";
 		}
 
 		setIsDarkMode(!isDarkMode);
@@ -53,12 +55,6 @@ export function Navbar({ showSidebar, isCollapsed }: Props) {
 		}
 	}, [isCollapsed]);
 
-	useEffect(() => {
-		if (html) {
-			html.className = "dark";
-		}
-	}, []);
-
 	return (
 		<div className={classNames("shadow-lg dark:bg-gray-800 py-[1.19rem]", getDynamicClass())}>
 			<div className="mx-auto flex flex-wrap items-center justify-between">
@@ -78,17 +74,9 @@ export function Navbar({ showSidebar, isCollapsed }: Props) {
 
 				<div className={classNames("w-auto", widthBelowWide ? "hidden" : "block")}>
 					<ul className="flex flex-row space-x-8 text-sm font-medium text-gray-500 dark:text-gray-400">
-						<button className="relative hover:text-gray-900 focus:text-gray-900 before:content-[''] before:absolute before:-bottom-[1.9rem] before:left-2/4 before:w-0 before:h-[3px] before:bg-[#8a51ff] before:duration-200 before:ease-out before:-translate-x-1/2 hover:before:w-[150%] focus:before:w-[150%] dark:hover:text-white dark:before:bg-[#ffd700] dark:focus:text-white">
-							Dashboard
-						</button>
-
-						<button className="relative hover:text-gray-900 focus:text-gray-900 before:content-[''] before:absolute before:-bottom-[1.9rem] before:left-2/4 before:w-0 before:h-[3px] before:bg-[#8a51ff] before:duration-200 before:ease-out before:-translate-x-1/2 hover:before:w-[150%] focus:before:w-[150%] dark:hover:text-white dark:before:bg-[#ffd700] dark:focus:text-white">
-							Perfil
-						</button>
-
-						<button className="relative hover:text-gray-900 focus:text-gray-900 before:content-[''] before:absolute before:-bottom-[1.9rem] before:left-2/4 before:w-0 before:h-[3px] before:bg-[#8a51ff] before:duration-200 before:ease-out before:-translate-x-1/2 hover:before:w-[150%] focus:before:w-[150%] dark:hover:text-white dark:before:bg-[#ffd700] dark:focus:text-white">
-							Gerência
-						</button>
+						<NavbarTab name="Dashboard" />
+						<NavbarTab name="Perfil" />
+						<NavbarTab name="Gerência" />
 					</ul>
 				</div>
 

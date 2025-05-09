@@ -1,4 +1,5 @@
-import { PropsWithChildren, useState } from "react";
+import { useState } from "react";
+import { Outlet } from "react-router";
 import classNames from "clsx";
 
 import { useWindowDimensions } from "@/hooks/useWindowDimensions";
@@ -6,7 +7,7 @@ import { useWindowDimensions } from "@/hooks/useWindowDimensions";
 import { Sidebar } from "@/components/Layout/Sidebar";
 import { Navbar } from "@/components/Layout/Navbar";
 
-export function Layout({ children }: PropsWithChildren) {
+export function Layout() {
 	const [isCollapsed, setIsCollapsed] = useState(false);
 	const [toggled, setToggled] = useState(false);
 
@@ -33,10 +34,10 @@ export function Layout({ children }: PropsWithChildren) {
 				toggled={toggled}
 				hideSidebar={hideSidebar}
 			/>
-
 			<Navbar showSidebar={showSidebar} isCollapsed={isCollapsed} />
-
-			<div className={classNames("py-7", getDynamicClass())}>{children}</div>
+			<div className={classNames("py-7", getDynamicClass())}>
+				<Outlet />
+			</div>
 		</>
 	);
 }
