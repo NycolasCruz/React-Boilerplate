@@ -74,9 +74,9 @@ export function Navbar({ showSidebar, isCollapsed }: Props) {
 
 				<div className={classNames("w-auto", widthBelowWide ? "hidden" : "block")}>
 					<ul className="flex flex-row space-x-8 text-sm font-medium text-gray-500 dark:text-gray-400">
-						<NavbarTab name="Dashboard" />
-						<NavbarTab name="Perfil" />
-						<NavbarTab name="Gerência" />
+						<NavbarTab name="Dashboard" to="/" />
+						<NavbarTab name="Perfil" to="/perfil" />
+						{/* <NavbarTab name="Gerência" /> */}
 					</ul>
 				</div>
 
