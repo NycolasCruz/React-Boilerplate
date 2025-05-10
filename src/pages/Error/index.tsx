@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 export function Error() {
 	return (
-		<div className="flex items-center justify-center min-h-screen px-4">
+		<div className="flex items-center justify-center min-h-[80vh] px-4">
 			<div className="text-center max-w-sm">
 				<img src="/404 error.png" alt="404 erro" />
 
