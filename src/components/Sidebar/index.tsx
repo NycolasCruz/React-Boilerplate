@@ -1,8 +1,8 @@
 import { useEffect, FormEvent } from "react";
 import classNames from "clsx";
 
-import { Sidebar as ReactProSidebar, Menu } from "react-pro-sidebar";
-import { BsPersonFill } from "react-icons/bs";
+import { Sidebar as ReactProSidebar, Menu, SubMenu } from "react-pro-sidebar";
+import { BsPersonFill, BsPersonFillGear } from "react-icons/bs";
 import { RiArrowLeftDoubleFill } from "react-icons/ri";
 import { MdSpaceDashboard } from "react-icons/md";
 import { IoCloseSharp } from "react-icons/io5";
@@ -12,7 +12,7 @@ import { useWindowDimensions } from "@/hooks/useWindowDimensions";
 import { MenuItem } from "./MenuItem";
 import { Section } from "./Section";
 
-import { buttonStyles } from "./buttonStyles";
+import { menuItemStyles } from "./menuItemStyles";
 import "./styles.scss";
 
 type Props = {
@@ -49,7 +49,7 @@ export function Sidebar({ isCollapsed, setIsCollapsed, toggled, hideSidebar }: P
 				backgroundColor="#1f2937"
 				onBackdropClick={hideSidebar}
 			>
-				<Menu menuItemStyles={buttonStyles}>
+				<Menu menuItemStyles={menuItemStyles}>
 					<div
 						className={classNames(
 							"flex items-center mt-5 mb-3",
@@ -80,14 +80,14 @@ export function Sidebar({ isCollapsed, setIsCollapsed, toggled, hideSidebar }: P
 
 					<MenuItem name="Perfil" to="/perfil" icon={<BsPersonFill className="text-xl" />} />
 
-					{/* <SubMenu
+					<SubMenu
 						className="text-gray-400"
 						icon={<BsPersonFillGear className="text-xl" />}
 						label="Gerência"
 					>
-						<MenuItem>Empresas</MenuItem>
-						<MenuItem>Funcionários</MenuItem>
-					</SubMenu> */}
+						<MenuItem name="Empresas" to="/gerencia/empresas" />
+						<MenuItem name="Funcionários" to="/gerencia/funcionarios" />
+					</SubMenu>
 				</Menu>
 			</ReactProSidebar>
 		</>

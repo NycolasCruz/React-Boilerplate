@@ -1,6 +1,6 @@
 import { MenuItemStyles } from "react-pro-sidebar";
 
-export const buttonStyles: MenuItemStyles = {
+export const menuItemStyles: MenuItemStyles = {
 	button: ({ level }) => {
 		const mouseOverStyles = { "&:hover": { backgroundColor: "#18212e" } };
 
