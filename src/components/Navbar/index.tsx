@@ -6,8 +6,9 @@ import { GiHamburgerMenu } from "react-icons/gi";
 
 import { useWindowDimensions } from "@/hooks/useWindowDimensions";
 
+import { ProfileTooltip } from "./ProfileTooltip";
+import { SubNavbarTab } from "./SubNavbarTab";
 import { NavbarTab } from "./NavbarTab";
-import { Tooltip } from "./Tooltip";
 
 import "./styles.scss";
 
@@ -82,8 +83,16 @@ export function Navbar({ showSidebar, isCollapsed }: Props) {
 				<div className={classNames("w-auto", widthBelowWide ? "hidden" : "block")}>
 					<ul className="flex flex-row space-x-8 text-sm font-medium text-gray-500 dark:text-gray-400">
 						<NavbarTab name="Dashboard" to="/" />
+
 						<NavbarTab name="Perfil" to="/perfil" />
-						{/* <NavbarTab name="Gerência" /> */}
+
+						<SubNavbarTab tabName="Gerência">
+							<SubNavbarTab.MenuItem to="/gerencia/funcionarios">
+								Funcionários
+							</SubNavbarTab.MenuItem>
+
+							<SubNavbarTab.MenuItem to="/gerencia/empresas">Empresas</SubNavbarTab.MenuItem>
+						</SubNavbarTab>
 					</ul>
 				</div>
 
@@ -104,7 +113,7 @@ export function Navbar({ showSidebar, isCollapsed }: Props) {
 						</button>
 					)}
 
-					<Tooltip />
+					<ProfileTooltip />
 				</div>
 			</div>
 		</div>

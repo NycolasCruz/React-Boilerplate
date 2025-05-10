@@ -3,12 +3,12 @@ import { FiLogOut } from "react-icons/fi";
 
 import { useWindowDimensions } from "@/hooks/useWindowDimensions";
 
-export function Tooltip() {
+export function ProfileTooltip() {
 	const { widthBelowWide } = useWindowDimensions();
 
 	return (
 		<FlowbiteTooltip
-			className="dark:bg-gray-800 border dark:border-gray-700"
+			className="bg-gray-800 dark:bg-gray-800 border border-gray-700 dark:border-gray-700"
 			content={
 				<ul className="text-gray-400">
 					<div className="py-2 px-4">
