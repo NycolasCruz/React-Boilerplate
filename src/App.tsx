@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router";
 
+import { Employees } from "./pages/Management/Employees";
+import { Business } from "./pages/Management/Business";
 import { Dashboard } from "./pages/Dashboard";
 import { Profile } from "./pages/Profile";
 import { Error } from "./pages/Error";
@@ -15,6 +17,8 @@ export function App() {
 			children: [
 				{ path: "/", element: <Dashboard /> },
 				{ path: "/perfil", element: <Profile /> },
+				{ path: "/gerencia/funcionarios", element: <Employees /> },
+				{ path: "/gerencia/empresas", element: <Business /> },
 			],
 		},
 	]);
