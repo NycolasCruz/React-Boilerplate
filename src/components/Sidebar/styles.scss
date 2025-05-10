@@ -1,19 +1,31 @@
 $gray800: #1f2937;
 $gray700: #374151;
-$yellow: #ffd700;
+$slate: #18212e;
+$lightSlate: #222d3b;
+$gold: #ffd700;
 
 .ps-sidebar-root.css-1wvake5 {
 	border-right-width: 0 !important;
 	position: fixed !important;
 
+	.ps-menu-button:hover {
+		background-color: $slate;
+	}
+
 	.ps-menu-button:hover,
 	.ps-menu-button:focus {
 		.ps-menu-icon {
-			color: $yellow;
+			color: $gold;
 			transition: all 150ms;
 		}
 	}
 
+	// not collapsed
+	.ps-submenu-content.css-18unl23 {
+		background-color: $lightSlate;
+	}
+
+	// collapsed
 	.ps-submenu-content.css-wlra1l {
 		background-color: $gray800;
 		border: 1px solid $gray700;

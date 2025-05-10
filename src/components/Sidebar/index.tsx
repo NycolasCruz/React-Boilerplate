@@ -12,7 +12,6 @@ import { useWindowDimensions } from "@/hooks/useWindowDimensions";
 import { MenuItem } from "./MenuItem";
 import { Section } from "./Section";
 
-import { menuItemStyles } from "./menuItemStyles";
 import "./styles.scss";
 
 type Props = {
@@ -49,7 +48,7 @@ export function Sidebar({ isCollapsed, setIsCollapsed, toggled, hideSidebar }: P
 				backgroundColor="#1f2937"
 				onBackdropClick={hideSidebar}
 			>
-				<Menu menuItemStyles={menuItemStyles}>
+				<Menu>
 					<div
 						className={classNames(
 							"flex items-center mt-5 mb-3",
