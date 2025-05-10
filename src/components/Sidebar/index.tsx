@@ -75,17 +75,27 @@ export function Sidebar({ isCollapsed, setIsCollapsed, toggled, hideSidebar }: P
 
 					<Section sectionName="Geral" isCollapsed={isCollapsed} />
 
-					<MenuItem name="Dashboard" to="/" icon={<MdSpaceDashboard className="text-xl" />} />
+					<MenuItem
+						name="Dashboard"
+						to="/"
+						icon={<MdSpaceDashboard className="text-xl" />}
+						hideSidebar={hideSidebar}
+					/>
 
-					<MenuItem name="Perfil" to="/perfil" icon={<BsPersonFill className="text-xl" />} />
+					<MenuItem
+						name="Perfil"
+						to="/perfil"
+						icon={<BsPersonFill className="text-xl" />}
+						hideSidebar={hideSidebar}
+					/>
 
 					<SubMenu
 						className="text-gray-400"
 						icon={<BsPersonFillGear className="text-xl" />}
 						label="Gerência"
 					>
-						<MenuItem name="Empresas" to="/gerencia/empresas" />
-						<MenuItem name="Funcionários" to="/gerencia/funcionarios" />
+						<MenuItem name="Empresas" to="/gerencia/empresas" hideSidebar={hideSidebar} />
+						<MenuItem name="Funcionários" to="/gerencia/funcionarios" hideSidebar={hideSidebar} />
 					</SubMenu>
 				</Menu>
 			</ReactProSidebar>
