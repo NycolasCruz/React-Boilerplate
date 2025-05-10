@@ -5,7 +5,7 @@ import { Link } from "react-router";
 type Props = {
 	to: string;
 	name: string;
-	icon: ReactNode;
+	icon?: ReactNode;
 };
 
 export function MenuItem({ to, name, icon }: Props) {
