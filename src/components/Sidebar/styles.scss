@@ -16,6 +16,14 @@ $gold: #ffd700;
 	.ps-menu-button:focus {
 		.ps-menu-icon {
 			color: $gold;
+		}
+
+		.ps-menu-label {
+			color: white;
+		}
+
+		.ps-menu-icon,
+		.ps-menu-label {
 			transition: all 150ms;
 		}
 	}
