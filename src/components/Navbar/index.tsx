@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import classNames from "clsx";
 
 import { BsMoonStarsFill, BsSunFill } from "react-icons/bs";
-import { Avatar, Tooltip } from "flowbite-react";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { FiLogOut } from "react-icons/fi";
 
 import { useWindowDimensions } from "@/hooks/useWindowDimensions";
 
+import { ProfileTooltip } from "./ProfileTooltip";
+import { SubNavbarTab } from "./SubNavbarTab";
 import { NavbarTab } from "./NavbarTab";
 
 import "./styles.scss";
@@ -23,9 +23,9 @@ export function Navbar({ showSidebar, isCollapsed }: Props) {
 	const [isDarkMode, setIsDarkMode] = useState(true);
 	const { widthBelowWide } = useWindowDimensions();
 
-	function handleThemeMode(mode: ThemeMode) {
-		const html = document.getElementById("html") as HTMLHtmlElement;
+	const html = document.getElementById("html") as HTMLHtmlElement;
 
+	function handleThemeMode(mode: ThemeMode) {
 		if (mode === "dark") {
 			html.className = "dark";
 		} else {
@@ -55,6 +55,14 @@ export function Navbar({ showSidebar, isCollapsed }: Props) {
 		}
 	}, [isCollapsed]);
 
+	useEffect(() => {
+		if (html.classList.contains("dark")) {
+			setIsDarkMode(true);
+		} else {
+			setIsDarkMode(false);
+		}
+	}, []);
+
 	return (
 		<div className={classNames("shadow-lg dark:bg-gray-800 py-[1.19rem]", getDynamicClass())}>
 			<div className="mx-auto flex flex-wrap items-center justify-between">
@@ -74,9 +82,17 @@ export function Navbar({ showSidebar, isCollapsed }: Props) {
 
 				<div className={classNames("w-auto", widthBelowWide ? "hidden" : "block")}>
 					<ul className="flex flex-row space-x-8 text-sm font-medium text-gray-500 dark:text-gray-400">
-						<NavbarTab name="Dashboard" />
-						<NavbarTab name="Perfil" />
-						<NavbarTab name="Gerência" />
+						<NavbarTab name="Dashboard" to="/" />
+
+						<NavbarTab name="Perfil" to="/perfil" />
+
+						<SubNavbarTab tabName="Gerência">
+							<SubNavbarTab.MenuItem to="/gerencia/funcionarios">
+								Funcionários
+							</SubNavbarTab.MenuItem>
+
+							<SubNavbarTab.MenuItem to="/gerencia/empresas">Empresas</SubNavbarTab.MenuItem>
+						</SubNavbarTab>
 					</ul>
 				</div>
 
@@ -97,42 +113,7 @@ export function Navbar({ showSidebar, isCollapsed }: Props) {
 						</button>
 					)}
 
-					<Tooltip
-						content={
-							<ul className="text-gray-200">
-								<div className="py-2 px-4">
-									<span className="block">Seu Nome</span>
-									<span>seuemail@gmail.com</span>
-								</div>
-
-								<div className="h-px bg-gray-600 my-1"></div>
-
-								<li>
-									<button className="flex w-full rounded hover:bg-gray-600 py-2 px-4">
-										Perfil
-									</button>
-								</li>
-
-								<li>
-									<button className="flex w-full rounded hover:bg-gray-600 py-2 px-4">
-										Configurações
-									</button>
-								</li>
-
-								<div className="h-px bg-gray-600 my-1 "></div>
-
-								<li>
-									<button className="flex items-center gap-1 w-full rounded hover:bg-gray-600 py-2 px-4">
-										Sair <FiLogOut />
-									</button>
-								</li>
-							</ul>
-						}
-						trigger={widthBelowWide ? "click" : "hover"}
-						arrow={false}
-					>
-						<Avatar id="user-avatar" alt="user settings" rounded />
-					</Tooltip>
+					<ProfileTooltip />
 				</div>
 			</div>
 		</div>

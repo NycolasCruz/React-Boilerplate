@@ -4,8 +4,8 @@ import classNames from "clsx";
 
 import { useWindowDimensions } from "@/hooks/useWindowDimensions";
 
-import { Sidebar } from "@/components/Layout/Sidebar";
-import { Navbar } from "@/components/Layout/Navbar";
+import { Sidebar } from "@/components/Sidebar";
+import { Navbar } from "@/components/Navbar";
 
 export function Layout() {
 	const [isCollapsed, setIsCollapsed] = useState(false);
@@ -34,7 +34,9 @@ export function Layout() {
 				toggled={toggled}
 				hideSidebar={hideSidebar}
 			/>
+
 			<Navbar showSidebar={showSidebar} isCollapsed={isCollapsed} />
+
 			<div className={classNames("py-7", getDynamicClass())}>
 				<Outlet />
 			</div>

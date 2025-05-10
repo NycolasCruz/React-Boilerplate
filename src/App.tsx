@@ -1,10 +1,17 @@
-import { Dashboard } from "@/components/Dashboard";
-import { Layout } from "@/components/Layout";
+import { useEffect } from "react";
+
+import { AppRoutes } from "./routes/AppRoutes";
 
 export function App() {
-	return (
-		<Layout>
-			<Dashboard />
-		</Layout>
-	);
+	function setDefaultTheme() {
+		const html = document.getElementById("html") as HTMLHtmlElement;
+
+		html.className = "dark";
+	}
+
+	useEffect(() => {
+		setDefaultTheme();
+	}, []);
+
+	return <AppRoutes />;
 }
