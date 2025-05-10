@@ -9,11 +9,11 @@ import { IoCloseSharp } from "react-icons/io5";
 
 import { useWindowDimensions } from "@/hooks/useWindowDimensions";
 
+import { MenuItem } from "./MenuItem";
 import { Section } from "./Section";
 
 import { buttonStyles } from "./buttonStyles";
 import "./styles.scss";
-import { MenuItem } from "./ManuItem";
 
 type Props = {
 	isCollapsed: boolean;
