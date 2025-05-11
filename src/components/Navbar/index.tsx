@@ -99,14 +99,14 @@ export function Navbar({ showSidebar, isCollapsed }: Props) {
 				<div className="flex items-center gap-5">
 					{isDarkMode ? (
 						<button
-							className="rounded-lg text-xl text-gray-400 hover:bg-gray-700 duration-100 p-2.5"
+							className="rounded-lg text-xl text-gray-400 hover:bg-gray-700 focus:bg-gray-700 duration-100 p-2.5"
 							onClick={() => handleThemeMode("light")}
 						>
 							<BsSunFill />
 						</button>
 					) : (
 						<button
-							className="rounded-lg text-gray-400 hover:bg-gray-300 duration-100 p-3"
+							className="rounded-lg text-gray-400 hover:bg-gray-300 focus:bg-gray-300 duration-100 p-3"
 							onClick={() => handleThemeMode("dark")}
 						>
 							<BsMoonStarsFill />

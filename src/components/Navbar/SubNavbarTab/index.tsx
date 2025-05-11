@@ -19,10 +19,14 @@ function SubNavbarTab({ tabName, children }: SubNavbarTabProps) {
 
 	return (
 		<FlowbiteTooltip
-			className="bg-gray-800 dark:bg-gray-800 border border-gray-700 dark:border-gray-700 p-0"
-			content={children}
+			className="p-0"
 			trigger={widthBelowWide ? "click" : "hover"}
 			arrow={false}
+			content={
+				<ul className="text-gray-400 bg-gray-800 border border-gray-700 rounded dark:bg-gray-800 dark:border-gray-700">
+					{children}
+				</ul>
+			}
 		>
 			<div className="relative hover:text-gray-900 focus:text-gray-900  dark:hover:text-white dark:focus:text-white cursor-pointer">
 				{tabName}
@@ -33,13 +37,14 @@ function SubNavbarTab({ tabName, children }: SubNavbarTabProps) {
 
 function MenuItem({ to, children }: MenuItemProps) {
 	return (
-		<ul className="text-gray-400">
-			<li className="rounded-3xl">
-				<Link to={to} className="flex w-full rounded hover:bg-[#18212e] py-4 ps-5 pe-12">
-					{children}
-				</Link>
-			</li>
-		</ul>
+		<li>
+			<Link
+				to={to}
+				className="flex w-full rounded hover:bg-[#18212e] focus:bg-[#18212e] py-4 ps-5 pe-12"
+			>
+				{children}
+			</Link>
+		</li>
 	);
 }
 

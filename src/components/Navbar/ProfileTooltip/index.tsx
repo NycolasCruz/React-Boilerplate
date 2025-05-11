@@ -1,5 +1,6 @@
 import { Avatar, Tooltip as FlowbiteTooltip } from "flowbite-react";
 import { FiLogOut } from "react-icons/fi";
+import { Link } from "react-router";
 
 import { useWindowDimensions } from "@/hooks/useWindowDimensions";
 
@@ -8,7 +9,9 @@ export function ProfileTooltip() {
 
 	return (
 		<FlowbiteTooltip
-			className="bg-gray-800 dark:bg-gray-800 border border-gray-700 dark:border-gray-700"
+			className="bg-gray-800 border border-gray-700 dark:bg-gray-800 dark:border-gray-700"
+			trigger={widthBelowWide ? "click" : "hover"}
+			arrow={false}
 			content={
 				<ul className="text-gray-400">
 					<div className="py-2 px-4">
@@ -19,26 +22,30 @@ export function ProfileTooltip() {
 					<div className="h-px bg-gray-600 my-1" />
 
 					<li className="py-1">
-						<button className="flex w-full rounded hover:bg-[#18212e] py-1 px-4">Perfil</button>
+						<Link to={"/perfil"}>
+							<button className="flex w-full rounded hover:bg-[#18212e] focus:bg-[#18212e] py-1 px-4">
+								Perfil
+							</button>
+						</Link>
 					</li>
 
 					<li className="py-1">
-						<button className="flex w-full rounded hover:bg-[#18212e] py-1 px-4">
-							Configurações
-						</button>
+						<Link to={"/configuracoes"}>
+							<button className="flex w-full rounded hover:bg-[#18212e] focus:bg-[#18212e] py-1 px-4">
+								Configurações
+							</button>
+						</Link>
 					</li>
 
 					<div className="h-px bg-gray-600 my-1" />
 
 					<li className="py-1">
-						<button className="flex items-center gap-1 w-full rounded hover:bg-[#18212e] py-1 px-4">
+						<button className="flex items-center gap-1 w-full rounded hover:bg-[#18212e] focus:bg-[#18212e] py-1 px-4">
 							Sair <FiLogOut />
 						</button>
 					</li>
 				</ul>
 			}
-			trigger={widthBelowWide ? "click" : "hover"}
-			arrow={false}
 		>
 			<Avatar id="user-avatar" alt="user settings" rounded />
 		</FlowbiteTooltip>
