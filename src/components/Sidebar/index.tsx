@@ -59,6 +59,7 @@ export function Sidebar({ isCollapsed, setIsCollapsed, toggled, hideSidebar }: P
 							<>
 								<h5 className="font-bold text-2xl tracking-tight">Boilerplate</h5>
 
+								{/* close button */}
 								{widthBelowWide && (
 									<IoCloseSharp className="text-2xl cursor-pointer -mt-5" onClick={hideSidebar} />
 								)}
@@ -67,8 +68,11 @@ export function Sidebar({ isCollapsed, setIsCollapsed, toggled, hideSidebar }: P
 
 						{/* collapse button */}
 						{!widthBelowWide && (
-							<button className="ease-out duration-300 mt-1" onClick={handleSidebarCollapse}>
-								<RiArrowLeftDoubleFill className="text-3xl hover:text-gray-400 duration-150" />
+							<button
+								className="ease-out duration-300 hover:text-gray-400 focus:text-gray-400 mt-1"
+								onClick={handleSidebarCollapse}
+							>
+								<RiArrowLeftDoubleFill className="text-3xl duration-150" />
 							</button>
 						)}
 					</div>

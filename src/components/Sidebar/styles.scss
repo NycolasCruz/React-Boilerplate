@@ -8,12 +8,10 @@ $gold: #ffd700;
 	border-right-width: 0 !important;
 	position: fixed !important;
 
-	.ps-menu-button:hover {
-		background-color: $slate;
-	}
-
 	.ps-menu-button:hover,
 	.ps-menu-button:focus {
+		background-color: $slate;
+
 		.ps-menu-icon {
 			color: $gold;
 		}
