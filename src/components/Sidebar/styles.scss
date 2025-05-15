@@ -8,8 +8,7 @@ $gold: #ffd700;
 	border-right-width: 0 !important;
 	position: fixed !important;
 
-	.ps-menu-button:hover,
-	.ps-menu-button:focus {
+	%hover-focus-styles {
 		background-color: $slate;
 
 		.ps-menu-icon {
@@ -26,15 +25,29 @@ $gold: #ffd700;
 		}
 	}
 
-	// not collapsed
-	.ps-submenu-content.css-18unl23 {
-		background-color: $lightSlate;
+	.menu-link:hover,
+	.menu-link:focus {
+		.ps-menu-button {
+			@extend %hover-focus-styles;
+		}
 	}
 
-	// collapsed
-	.ps-submenu-content.css-wlra1l {
-		background-color: $gray800;
-		border: 1px solid $gray700;
+	.ps-menu-button:hover,
+	.ps-menu-button:focus {
+		@extend %hover-focus-styles;
+	}
+
+	.ps-submenu-content {
+		// not collapsed
+		&.css-18unl23 {
+			background-color: $lightSlate;
+		}
+
+		// collapsed
+		&.css-wlra1l {
+			background-color: $gray800;
+			border: 1px solid $gray700;
+		}
 	}
 
 	.ps-submenu-expand-icon {

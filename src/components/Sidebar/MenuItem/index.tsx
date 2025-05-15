@@ -11,8 +11,8 @@ type Props = {
 
 export function MenuItem({ to, name, icon, hideSidebar }: Props) {
 	return (
-		<Link to={to} onClick={() => hideSidebar(true)}>
-			<ReactMenuItem className="text-gray-400" icon={icon}>
+		<Link className="menu-link" to={to} onClick={() => hideSidebar(true)}>
+			<ReactMenuItem className="text-gray-400" icon={icon} tabIndex={-1}>
 				{name}
 			</ReactMenuItem>
 		</Link>
