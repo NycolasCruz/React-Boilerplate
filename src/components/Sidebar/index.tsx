@@ -10,7 +10,6 @@ import { IoCloseSharp } from "react-icons/io5";
 import { useWindowDimensions } from "@/hooks/useWindowDimensions";
 
 import { MenuItem } from "./MenuItem";
-import { Section } from "./Section";
 
 import "./styles.scss";
 
@@ -51,7 +50,7 @@ export function Sidebar({ isCollapsed, setIsCollapsed, toggled, hideSidebar }: P
 				<Menu>
 					<div
 						className={classNames(
-							"flex items-center mt-5 mb-3",
+							"flex items-center mt-5 mb-6",
 							isCollapsed ? "justify-center mr-[0.3rem]" : "justify-between px-3"
 						)}
 					>
@@ -76,8 +75,6 @@ export function Sidebar({ isCollapsed, setIsCollapsed, toggled, hideSidebar }: P
 							</button>
 						)}
 					</div>
-
-					<Section sectionName="Geral" isCollapsed={isCollapsed} />
 
 					<MenuItem
 						name="Dashboard"
