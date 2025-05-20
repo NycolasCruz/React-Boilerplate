@@ -23,16 +23,20 @@ export function Navbar({ showSidebar, isCollapsed }: Props) {
 	const [isDarkMode, setIsDarkMode] = useState(true);
 	const { widthBelowWide } = useWindowDimensions();
 
-	const html = document.getElementById("html") as HTMLHtmlElement;
-
 	function handleThemeMode(mode: ThemeMode) {
+		const html = document.getElementById("html") as HTMLHtmlElement;
+
 		if (mode === "dark") {
 			html.className = "dark";
-		} else {
-			html.className = "";
+			localStorage.setItem("themeMode", "dark");
+			setIsDarkMode(true);
+
+			return;
 		}
 
-		setIsDarkMode(!isDarkMode);
+		html.className = "";
+		localStorage.setItem("themeMode", "light");
+		setIsDarkMode(false);
 	}
 
 	function getDynamicClass() {
@@ -56,11 +60,11 @@ export function Navbar({ showSidebar, isCollapsed }: Props) {
 	}, [isCollapsed]);
 
 	useEffect(() => {
-		if (html.classList.contains("dark")) {
-			setIsDarkMode(true);
-		} else {
-			setIsDarkMode(false);
+		if (!localStorage.themeMode) {
+			return;
 		}
+
+		handleThemeMode(localStorage.themeMode);
 	}, []);
 
 	return (
