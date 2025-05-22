@@ -3,9 +3,9 @@ import { Link } from "react-router";
 
 export function Error() {
 	return (
-		<div className="flex items-center justify-center min-h-[80vh] px-4">
+		<div className="flex items-center justify-center min-h-[79vh] px-4">
 			<div className="text-center max-w-sm">
-				<img src="/404 error.png" alt="404 erro" />
+				<img src="/404 error.png" alt="Erro 404" />
 
 				<p className="text-2xl font-semibold text-gray-800 dark:text-gray-100">
 					Página não encontrada

@@ -22,18 +22,20 @@ export function ProfileTooltip() {
 					<div className="h-px bg-gray-600 my-1" />
 
 					<li className="py-1">
-						<Link to={"/perfil"}>
-							<button className="flex w-full rounded hover:bg-[#18212e] focus:bg-[#18212e] py-1 px-4">
-								Perfil
-							</button>
+						<Link
+							to="/perfil"
+							className="flex w-full rounded hover:bg-[#18212e] focus:bg-[#18212e] py-1 px-4"
+						>
+							Perfil
 						</Link>
 					</li>
 
 					<li className="py-1">
-						<Link to={"/configuracoes"}>
-							<button className="flex w-full rounded hover:bg-[#18212e] focus:bg-[#18212e] py-1 px-4">
-								Configurações
-							</button>
+						<Link
+							to="/configuracoes"
+							className="flex w-full rounded hover:bg-[#18212e] focus:bg-[#18212e] py-1 px-4"
+						>
+							Configurações
 						</Link>
 					</li>
 

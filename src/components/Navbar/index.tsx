@@ -41,30 +41,38 @@ export function Navbar({ showSidebar, isCollapsed }: Props) {
 
 	function getDynamicClass() {
 		if (isCollapsed && !widthBelowWide) {
-			return "ease-in duration-300 pl-[8.5rem] pr-14";
-		} else if (!isCollapsed && !widthBelowWide) {
-			return "ease-in-out duration-[400ms] pl-[19.13rem] pr-14";
+			return "ease-in duration-300 pl-[8.57em] pr-14";
+		}
+
+		if (!isCollapsed && !widthBelowWide) {
+			return "ease-in-out duration-[400ms] pl-[19.2rem] pr-14";
 		}
 
 		return "px-8";
 	}
 
 	useEffect(() => {
-		const style = document.documentElement.style;
+		const { style } = document.documentElement;
 
 		if (isCollapsed) {
 			style.setProperty("--body-transition-duration", "300ms");
-		} else {
-			style.setProperty("--body-transition-duration", "400ms");
-		}
-	}, [isCollapsed]);
 
-	useEffect(() => {
-		if (!localStorage.themeMode) {
 			return;
 		}
 
-		handleThemeMode(localStorage.themeMode);
+		style.setProperty("--body-transition-duration", "400ms");
+	}, [isCollapsed]);
+
+	useEffect(() => {
+		const elements = document.querySelectorAll("[data-testid='flowbite-tooltip-target']");
+
+		elements.forEach((element) => {
+			element.setAttribute("tabindex", "0");
+		});
+
+		if (localStorage.themeMode) {
+			handleThemeMode(localStorage.themeMode);
+		}
 	}, []);
 
 	return (

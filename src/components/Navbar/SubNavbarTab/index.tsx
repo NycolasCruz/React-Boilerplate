@@ -1,8 +1,8 @@
+import { ReactNode } from "react";
 import { Tooltip as FlowbiteTooltip } from "flowbite-react";
+import { Link } from "react-router";
 
 import { useWindowDimensions } from "@/hooks/useWindowDimensions";
-import { Link } from "react-router";
-import { ReactNode } from "react";
 
 type SubNavbarTabProps = {
 	tabName: string;

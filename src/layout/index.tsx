@@ -19,7 +19,9 @@ export function Layout() {
 	function getDynamicClass() {
 		if (isCollapsed && !widthBelowWide) {
 			return "ease-in duration-300 ml-[7.5rem]";
-		} else if (!isCollapsed && !widthBelowWide) {
+		}
+
+		if (!isCollapsed && !widthBelowWide) {
 			return "ease-in-out duration-[400ms] ml-[18.13rem]";
 		}
 
